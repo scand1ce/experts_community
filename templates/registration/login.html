@@ -8,13 +8,13 @@
 {% block content %}
 
 
-    <h2 style="background-color:rgb(46, 40, 73);">Log In</h2>
+    <h2 style="background-color:rgb(46, 40, 73);">Вход в аккаунт</h2>
     <form method="post">
 
         {% csrf_token %}
         {{ form|crispy }}
 
-        <button class="btn btn-dark" type="submit">Log In</button>
+        <button class="btn btn-dark" type="submit">Войти</button>
 
     </form>
 
