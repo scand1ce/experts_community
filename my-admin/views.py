@@ -6,7 +6,6 @@ from users.models import CustomUser
 def get_user_list(request):
     user_list = CustomUser.objects.all()
     context = {
-
         'users': user_list,
     }
 

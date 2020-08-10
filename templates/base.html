@@ -45,12 +45,13 @@
             </li>
         </ul>
         {% else %}
-        <form class="ml-auto">
+
+        <div class="ml-auto">
             <a href="{% url 'login' %}" class="btn btn-outline-secondary">
                 Войти</a>
             <a href="{% url 'signup' %}" class="btn btn-primary ml-2">
                 Зарегистрироваться</a>
-        </form>
+        </div>
         {% endif %}
     </div>
 </nav>

@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='customuser',
             name='is_admin',
-            field=models.BooleanField(default=False, verbose_name='my_admin status'),
+            field=models.BooleanField(default=False, verbose_name='my-admin status'),
         ),
         migrations.AddField(
             model_name='customuser',
