@@ -1,12 +1,43 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import (CreateView, ListView, UpdateView, DeleteView)
 
 from users.models import CustomUser
 
 
-def get_user_list(request):
-    user_list = CustomUser.objects.all()
-    context = {
-        'users': user_list,
-    }
+class AdminCreateUserView(CreateView):
+    model = CustomUser
+    success_url = reverse_lazy('admin_page')
+    template_name ='admin/admin_create_users.html'
+    fields = [
+        'username',
+        'email',
+        'department',
+        'password',
+        'is_active',
+        'is_staff'
+    ]
 
-    return render(request, 'admin/admin_page.html', context)
+
+class AdminUsersListView(ListView):
+    model = CustomUser
+    template_name = 'admin/admin_page.html'
+
+
+class AdminUpdateUserView(UpdateView):
+    model = CustomUser
+    success_url = reverse_lazy('admin_page')
+    template_name ='admin/admin_update_users.html'
+    fields = ['is_active', 'is_staff', 'body']
+
+
+class AdminUserDeleteView(DeleteView):
+    model = CustomUser
+    success_url = reverse_lazy('admin_page')
+    template_name = 'admin/admin_delete_users.html'
+
+
+
+
+

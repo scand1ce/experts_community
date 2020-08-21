@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Страница администратора{% endblock title %}
+
+{% block content %}
+
+
+    <h1>Активация пользователя!</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <p>Вы уверены,что хотите изменить статус пользователя "{{ customuser.username }}"?</p>
+
+        <input class="btn btn-dark" type="submit" value="Изменить права пользователя">
+        <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'admin_page' %}'">
+    </form>
+
+{% endblock content %}
