@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     #  --->
     'users.apps.UsersConfig',
     'my-admin.apps.AdminConfig',  # solved include
+    'storage-app.apps.StorageConfig',
 
     #  <--- 
     'crispy_forms',
