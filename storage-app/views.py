@@ -9,7 +9,7 @@ from .forms import UploadFilesForm
 
 class UploadFilesView(View):
     form_class = UploadFilesForm
-    success_url = reverse_lazy('files_upload')
+    success_url = reverse_lazy('files_list')
     template_name = 'storage/files_upload.html'
 
     def get(self, request, *args, **kwargs):
