@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Страница администратора{% endblock title %}
+
+{% block content %}
+
+    <style>
+
+        table {
+            width: 1500px; /* Ширина таблицы */
+            margin: auto; /* Выравниваем таблицу по центру */
+        }
+
+        td, th {
+            border: 2px solid green; /* Рамка вокруг таблицы */
+            text-align: center; /* Выравниваем текст по центру ячейки */
+        }
+        input.btn.btn-dark {
+ float: right;
+}
+input.btn-dark {
+ float: top;
+}
+    </style>
+<div class="main-container">
+
+    <h2>Список зарегистрированных пользователей:</h2>
+
+    <form>
+        {% csrf_token %}
+        {{ crispy }}
+        <div class="table-responsive-lg">
+            <table class="table table-hover table-dark" style="background-color: #16181b ">
+  <thead>
+    <tr>
+
+      <th>Номер дела</th>
+      <th>Название</th>
+      <th>Краткое описание</th>
+      <th>Объявленная цена, грн</th>
+      <th>Загрузить файл</th>
+      <th>Удалить файл</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for file in uploadfilemodel_list %}
+    <tr>
+      <td>{{ file.number }}</td>
+      <td>{{ file.title }}</td>
+      <td>{{ file.comment }}</td>
+      <td>{{ file.sum}}</td>
+      <td>
+          <a href="{{file.file.url}}" class="btn btn-dark" target="_blank">Загрузить</a>
+      </td>
+      <td>{{file.delete}}</td>
+
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+
+
+
+        </div>
+
+    </form>
+   <input class="btn btn-dark" type="button" value="Загрузить новый файл" onclick="location.href='{% url 'files_upload' %}'">
+</div>
+
+{% endblock content %}

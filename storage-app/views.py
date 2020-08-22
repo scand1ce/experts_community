@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import View
+from django.views.generic import View, ListView
 
-# from .models import UploadFileModel
+from .models import UploadFileModel
 
 from .forms import UploadFilesForm
 
@@ -23,3 +23,8 @@ class UploadFilesView(View):
             return redirect(self.success_url)
         else:
             return render(requset, self.template_name, {'form': form})
+
+
+class ListFileView(ListView):
+    model = UploadFileModel
+    template_name = 'storage/files_list.html'

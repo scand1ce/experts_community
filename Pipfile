@@ -10,10 +10,7 @@ django = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-crispy-forms = "*"
-pylint = "*"
-django-allauth = "*"
-stripe = "*"
-django-registration-redux = "*"
+
 
 
 [requires]

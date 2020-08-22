@@ -1,7 +1,7 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from stripe.api_resources import account
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -33,12 +33,11 @@ INSTALLED_APPS = [
     #  --->
     'users.apps.UsersConfig',
     'my-admin.apps.AdminConfig',  # solved include
-    'storage-app.apps.StorageConfig',
+    'storage-app.apps.StorageConfig',  # for new storage app
 
     #  <--- 
     'crispy_forms',
     'allauth',
-    'allauth.account',
     'registration',
 
 
@@ -132,9 +131,16 @@ STATIC_URL = '/static/'
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'users/static/'),
+    os.path.join(BASE_DIR, 'users/static'),
+    #  os.path.join(BASE_DIR, 'storage-app/static/'), возможно будет добавлена статика
+
 ]
+
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -142,7 +148,4 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
 
-AUTHENTICATION_BACKENDS = (
-                            'django.contrib.auth.backends.AllowAllUsersModelBackend',
-                            'allauth.account.auth_backends.AuthenticationBackend',
-                           )
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.AllowAllUsersModelBackend',)

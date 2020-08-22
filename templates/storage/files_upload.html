@@ -11,6 +11,7 @@
     {% csrf_token %}
     {{  form|crispy   }}
     <button type="submit" value="Добавить" class="btn btn-dark">Загрузить</button>
+    <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'admin_page' %}'">
 
 </form>
 
