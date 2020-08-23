@@ -29,8 +29,9 @@ INSTALLED_APPS = [
 
     #  --->
     'users.apps.UsersConfig',
-    'my-admin.apps.AdminConfig',  # solved include
-    'storage-app.apps.StorageConfig',  # for new storage app
+    'my-admin.apps.AdminConfig',
+    'storage-app.apps.StorageConfig',
+    'posts.apps.PostsConfig',
 
     #  <--- 
     'crispy_forms',
