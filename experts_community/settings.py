@@ -1,7 +1,7 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from stripe.api_resources import account
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     #  <--- 
     'crispy_forms',
     'allauth',
-    'allauth.account',
     'registration',
 
 
@@ -141,7 +140,4 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
 
-AUTHENTICATION_BACKENDS = (
-                            'django.contrib.auth.backends.AllowAllUsersModelBackend',
-                            'allauth.account.auth_backends.AuthenticationBackend',
-                           )
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.AllowAllUsersModelBackend',)
