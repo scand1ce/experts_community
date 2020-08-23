@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import View, ListView, DeleteView
-
-from .models import UploadFileModel
-
+from .models import UploadFilesModel
 from .forms import UploadFilesForm
 
 
 class UploadFilesView(View):
+
     form_class = UploadFilesForm
     success_url = reverse_lazy('files_list')
     template_name = 'storage/files_upload.html'
@@ -25,12 +24,12 @@ class UploadFilesView(View):
             return render(requset, self.template_name, {'form': form})
 
 
-class ListFileView(ListView):
-    model = UploadFileModel
+class ListFilesView(ListView):
+    model = UploadFilesModel
     template_name = 'storage/files_list.html'
 
 
 class DeleteFilesView(DeleteView):
-    model = UploadFileModel
+    model = UploadFilesModel
     success_url = reverse_lazy('files_list')
     template_name = 'storage/files_delete.html'

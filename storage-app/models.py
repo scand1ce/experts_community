@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 
-class UploadFileModel(models.Model):
+class UploadFilesModel(models.Model):
     number = models.IntegerField(blank=True, default=0, verbose_name='Номер дела')
     title = models.CharField(max_length=50, blank=False, verbose_name='Тема вопроаса')
     comment = models.CharField(max_length=2000, blank=True, verbose_name='Описание')
@@ -13,4 +13,4 @@ class UploadFileModel(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('book_detail', kwargs={'pk': str(self.pk)})
+        return reverse('files_delete', kwargs={'pk': str(self.pk)})
