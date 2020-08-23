@@ -9,11 +9,6 @@ class CustomUser(AbstractUser):
     last_name = models.CharField(max_length=50, blank=True, verbose_name='Фамилия')
     is_superuser = models.BooleanField(null=False, default=False)
     is_active = models.BooleanField(null=False, default=False, verbose_name='Активировать')
-    userfield = models.ForeignKey(
-        'users.CustomUser',
-        on_delete=models.CASCADE,
-        null=True,
-    )
     body = models.TextField()
 
     def __str__(self):
