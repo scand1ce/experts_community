@@ -3,10 +3,10 @@ from django.urls import reverse
 
 
 class UploadFileModel(models.Model):
-    number = models.IntegerField(blank=True, null=True, verbose_name='Номер дела')
+    number = models.IntegerField(blank=True, default=0, verbose_name='Номер дела')
     title = models.CharField(max_length=50, blank=False, verbose_name='Тема вопроаса')
     comment = models.CharField(max_length=2000, blank=True, verbose_name='Описание')
-    file = models.FileField(upload_to='files/%Y/%m/%d/', blank=False, verbose_name='Файлы')
+    file = models.FileField(upload_to='media/files/%Y/%m/%d/', blank=False, verbose_name='Файлы')
     sum = models.IntegerField(blank=True, default=0, verbose_name='Объявленная цена')
 
     def __str__(self):

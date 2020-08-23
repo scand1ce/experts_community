@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+
+
 {% load crispy_forms_tags %}
 
 {% block title %}Удаление файла{% endblock title %}
@@ -11,10 +13,11 @@
 <form action="" method="POST">
     {% csrf_token %}
     {{ crispy }}
-    <p>Вы уверены,что хотите удалить файл "{{ file.title }}"?</p>
 
-    <button class="btn btn-dark" type="submit" onclick="location.href='{% url '' file.pk %}'">Удалить</button>
-    <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'files_delete' file.pk %}'">
+    <p>Вы уверены,что хотите удалить файл "{{ uploadfilemodel.file }}"?</p>
+
+    <button class="btn btn-dark" type="submit" >Удалить</button>
+    <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'files_list' %}'">
 </form>
 
 {% endblock content %}
