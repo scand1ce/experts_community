@@ -7,7 +7,8 @@
 {% block content %}
 
     <h2 style="background-color:rgb(46, 40, 73);">Вход в аккаунт</h2>
-
+        <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
     <form method="post">
 
         {% csrf_token %}
@@ -17,5 +18,6 @@
 
 
     </form>
-
+  </div>
+        </div>
 {% endblock content %}
