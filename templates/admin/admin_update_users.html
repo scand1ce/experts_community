@@ -8,6 +8,8 @@
 
 
     <h1>Активация пользователя!</h1>
+ <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
     <form action="" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
@@ -16,5 +18,7 @@
         <input class="btn btn-dark" type="submit" value="Изменить права пользователя">
         <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'admin_page' %}'">
     </form>
+  </div>
+ </div>
 
 {% endblock content %}

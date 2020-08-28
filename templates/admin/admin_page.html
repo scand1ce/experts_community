@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load crispy_forms_tags %}
+
 
 {% block title %}Страница администратора{% endblock title %}
 
@@ -24,9 +24,12 @@ input.btn-dark {
  float: top;
 }
     </style>
-<div class="main-container">
+
 
     <h2>Список зарегистрированных пользователей:</h2>
+
+<div class="main-container">
+
 
     <form>
         {% csrf_token %}

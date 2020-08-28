@@ -24,6 +24,8 @@ input.btn-dark {
  float: top;
 }
     </style>
+        <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
 <div class="main-container">
 
     <h2>Список загруженных файлов:</h2>
@@ -46,7 +48,7 @@ input.btn-dark {
   </thead>
 
   <tbody>
-  {% for uploadedfile in uploadfilemodel_list %}
+  {% for uploadedfile in uploadfilesmodel_list %}
     <tr>
       <td>{{ uploadedfile.number }}</td>
       <td>{{ uploadedfile.title }}</td>
@@ -72,5 +74,7 @@ input.btn-dark {
     </form>
    <input class="btn btn-dark" type="button" value="Загрузить новый файл" onclick="location.href='{% url 'files_upload' %}'">
 </div>
+  </div>
+        </div>
 
 {% endblock content %}

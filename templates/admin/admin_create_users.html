@@ -14,6 +14,8 @@
     </style>
 
     <h2 style="background-color:rgb(46, 40, 73);">Регистрация</h2>
+     <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
     <form method="POST">
         {% csrf_token %}
         {{ form|crispy }}
@@ -21,7 +23,8 @@
     <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'admin_page' %}'">
           </form>
 
-
+  </div>
+     </div>
 
 
 {% endblock content %}
