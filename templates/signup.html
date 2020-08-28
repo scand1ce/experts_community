@@ -10,6 +10,8 @@
 
 
     <h2 style="background-color:rgb(46, 40, 73);">Регистрация</h2>
+            <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
     <form method="post" id="form1">
         {% csrf_token %}
         {{ form|crispy }}
@@ -38,4 +40,6 @@
 
         </div>
     </form>
+  </div>
+            </div>
 {% endblock content %}

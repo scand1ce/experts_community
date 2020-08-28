@@ -15,6 +15,4 @@ urlpatterns = [
     path('create-user/', AdminCreateUserView.as_view(), name='admin_create_users'),
     path('my-admin/', AdminUsersListView.as_view(), name='admin_page'),
     #  path('my-admin/', views.get_user_list, name='admin_page'),
-
-
 ]
