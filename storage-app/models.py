@@ -11,8 +11,6 @@ class UploadFilesModel(models.Model):
     def __str__(self):
         return self.title
 
-<<<<<<< HEAD
-def get_absolute_url(self):
-        return reverse('files_delete', kwargs={'pk': str(self.pk)})
-=======
->>>>>>> master
+
+
+
