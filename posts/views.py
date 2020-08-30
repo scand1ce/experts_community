@@ -4,9 +4,9 @@ from django.views.generic import CreateView
 from posts.forms import CreatePostsForm
 
 
-class CreatePostsView(CreateView):
+class PostsView(CreateView):
     form_class = CreatePostsForm
-    success_url = reverse_lazy('create_posts')  # lin from revers_lazy will be change on 'list_posts'
+    success_url = reverse_lazy('create_posts')  # link from revers_lazy will be change on 'list_posts'
     template_name = 'posts/posts_create.html'
 
     def get(self, request, *args, **kwargs):
