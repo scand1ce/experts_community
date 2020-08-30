@@ -2,16 +2,12 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 from posts.forms import CreatePostsForm
-from posts.models import CreatePostsModel
+from posts.models import Post
 
 
-class PostsView(CreateView):
+class CreatePostsView(CreateView):
     form_class = CreatePostsForm
-<<<<<<< HEAD
     success_url = reverse_lazy('list_posts')
-=======
-    success_url = reverse_lazy('create_posts')  # link from revers_lazy will be change on 'list_posts'
->>>>>>> master
     template_name = 'posts/posts_create.html'
 
     '''def get(self, request, *args, **kwargs):
@@ -28,5 +24,5 @@ class PostsView(CreateView):
 
 
 class ListPostsView(ListView):
-    model = CreatePostsModel
+    model = Post
     template_name = 'posts/posts_list.html'
