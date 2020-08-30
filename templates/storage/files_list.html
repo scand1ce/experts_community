@@ -14,7 +14,7 @@
         }
 
         td, th {
-            border: 2px solid green; /* Рамка вокруг таблицы */
+            border: 2px solid; /* Рамка вокруг таблицы */
             text-align: center; /* Выравниваем текст по центру ячейки */
         }
         input.btn.btn-dark {
@@ -25,17 +25,17 @@ input.btn-dark {
 }
     </style>
         <div class="card" style="background-color: #16181b ">
-  <div class="card-body">
-<div class="main-container">
+  <div class="card-body" >
+<div class="main-container" >
 
 
-<div class="bg-primary m-2">
-<h3 class="text-md-center">Список загруженных файлов</h3>
+<div class="bg-primary m-2" >
+<h3 class="text-md-center" style="background-color: #383d41">Список загруженных файлов</h3>
 
     <form>
         {% csrf_token %}
         {{ crispy }}
-
+    <div class="badge-dark" >
         <div class="table-responsive-lg">
             <table class="table table-hover table-dark" style="background-color: #16181b ">
   <thead>
@@ -77,12 +77,11 @@ input.btn-dark {
     </form>
    <input class="btn btn-dark" type="button" value="Загрузить новый файл" onclick="location.href='{% url 'files_upload' %}'">
 </div>
-<<<<<<< HEAD
-</div>
-</div>
-=======
-  </div>
-        </div>
 
->>>>>>> master
+</div>
+</div>
+
+  </div>
+
+</div>
 {% endblock content %}
