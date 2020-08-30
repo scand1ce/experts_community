@@ -10,3 +10,10 @@ class UploadFilesModel(models.Model):
 
     def __str__(self):
         return self.title
+<<<<<<< HEAD
+
+
+
+
+=======
+>>>>>>> master
