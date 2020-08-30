@@ -1,12 +1,12 @@
 from django import forms
-from .models import CreatePostsModel
+from .models import PostsModel
 import re
 from django.core.exceptions import ValidationError
 
 
 class CreatePostsForm(forms.ModelForm):
     class Meta:
-        model = CreatePostsModel
+        model = PostsModel
         fields = '__all__'
 
     def clean_title(self):
