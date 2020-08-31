@@ -5,14 +5,17 @@
 {% block content %}
 
     {% if user.is_authenticated %}
+        <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
+    Привет, {{ user.username }}!
+    <p><a href="{% url 'logout' %}">Выйти</a></p>
+  </div>
+        </div>
 
-    Hi {{ user.username }}!
-    <p><a href="{% url 'logout' %}">Log Out</a></p>
-    {% else %}
+{% else %}
+        <h3>Войдите в аккаунт или зарегистрируйтесь!</h3>
 
-    <p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a> |
-<a href="{% url 'signup' %}">Sign Up</a>
+
 
 {% endif %}
 

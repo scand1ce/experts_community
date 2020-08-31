@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Посты{% endblock title %}
+
+{% block content %}
+
+ {%for post in post_list%}
+<div class="container">
+        <div class="card-header">
+
+        </div>
+        <div class="card-body">
+            <div class="media">
+                {%if post.photo%}
+                <img src="{{post.photo.url}}" alt="" width="600" height="450" class="mr-3">
+                {%endif%}
+                <div class="media-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{post.content|safe|truncatewords:77}}</p>
+                    <a href="{{post.get_absolute_url}}" class="btn bg-primary" >Смотреть полностью</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted" style="background-color: #e2e6ea ">
+            Опубликовано {{post.created_at|timesince }} назад.
+        </div>
+</div>
+
+    {%endfor%}
+
+{% endblock content %}

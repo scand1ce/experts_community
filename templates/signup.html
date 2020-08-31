@@ -1,17 +1,45 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_filters %}
+
 {% load crispy_forms_tags %}
 
-{% block title %}Sign Up{% endblock title%}
+{% block title %}Регистрация{% endblock title %}
 
 {% block content %}
 
 
-<h2 style="background-color:rgb(46, 40, 73);">Sign up</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button class="btn btn-dark" type="submit">Sign Up</button>
-</form>
+    <h2 style="background-color:rgb(46, 40, 73);">Регистрация</h2>
+            <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
+    <form method="post" id="form1">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#modal1">Зарегистрироваться</button>
 
+        <div class="modal" id="modal1">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color:rgb(46, 40, 73);">
+
+
+                    <h3 class="modal-title">Важное сообщение!</h3>
+
+
+                    <p>ОЖИДАЙТЕ ПОДТВЕРЖДЕНИЯ РЕГИСТРАЦИИ!</p>
+                    <p>Админстратор подтвердит Вашу регистрацию в скором времени.</p>
+
+
+                    <div class="modal-footer">
+                        <input class="btn btn-primary" type="submit" value="Продолжить" data-target="#form1"/>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+  </div>
+            </div>
 {% endblock content %}

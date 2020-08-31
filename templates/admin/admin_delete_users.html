@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Страница администратора{% endblock title %}
+
+{% block content %}
+
+
+<h1>Удаление пользователя!</h1>
+     <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ crispy }}
+    <p>Вы уверены,что хотите удалить пользователя "{{ customuser.username }}"?</p>
+
+    <button class="btn btn-dark" type="submit" >Удалить</button>
+    <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'admin_page' %}'">
+</form>
+  </div>
+     </div>
+{% endblock content %}
