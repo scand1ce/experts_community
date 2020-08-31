@@ -8,10 +8,8 @@ verify_ssl = true
 [packages]
 django = "*"
 gunicorn = "*"
-whitenoise = "*"
+whitenoise = "==4.1.4"
 django-crispy-forms = "*"
-
-
 
 [requires]
 python_version = "3.8"
