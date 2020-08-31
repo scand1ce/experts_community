@@ -7,7 +7,7 @@ from posts.models import Post
 
 class CreatePostsView(CreateView):
     form_class = CreatePostsForm
-    success_url = reverse_lazy('list_posts')
+    success_url = reverse_lazy('list_posts')  # link from revers_lazy will be change on 'list_posts'
     template_name = 'posts/posts_create.html'
 
     '''def get(self, request, *args, **kwargs):
@@ -21,7 +21,6 @@ class CreatePostsView(CreateView):
             return redirect(self.success_url)
         else:
             return render(requset, self.template_name, {'form': form})'''
-
 
 class ListPostsView(ListView):
     model = Post
