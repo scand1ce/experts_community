@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="card text-center" style="background-color: #16181b">
+  <div class="card-header">
+    <h2 class="card-title">{{ post.title }}</h2>
+  </div>
+  <div class="card-body">
+          {%if post.photo%}
+              <a href="{{ post.photo.url }}" class="btn btn-dark" target="_blank"><img src="{{post.photo.url}}"
+                                                     alt="" width="100" height="60" class="mr-3"></a>
+
+                {%endif%}
+    <p class="card-text" align="justify">{{ post.content }}</p>
+    <a href="{% url 'list_posts' %}" class="btn btn-dark text-white">Назад</a>
+  </div>
+  <div class="card-footer text-muted">
+    <p>Добавлено {{ post.created_at }}.</p>
+  </div>
+</div>
+{% endblock content %}

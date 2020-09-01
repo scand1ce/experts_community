@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from posts.forms import CreatePostsForm
 from posts.models import Post
 
@@ -22,6 +21,12 @@ class CreatePostsView(CreateView):
         else:
             return render(requset, self.template_name, {'form': form})'''
 
+
 class ListPostsView(ListView):
     model = Post
     template_name = 'posts/posts_list.html'
+
+
+class DitailPostsView(DetailView):
+    model = Post
+    template_name = 'posts/post_detail.html'
