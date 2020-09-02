@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+
+{% load crispy_forms_tags %}
+
+{% block title %}Удаление опубликованной проблемы{% endblock title %}
+
+{% block content %}
+
+
+<h3>Удаление опубликованной проблемы!</h3>
+    <div class="card" style="background-color: #16181b ">
+  <div class="card-body">
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ crispy }}
+
+    <p>Вы уверены,что хотите удалить пост "{{ post.title }}"?</p>
+
+    <button class="btn btn-dark" type="submit" >Удалить</button>
+    <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'list_posts' %}'">
+</form>
+  </div>
+</div>
+{% endblock content %}
