@@ -9,116 +9,140 @@
 
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <title>{% block title %} Experts community {% endblock title %}</title>
 </head>
 
+<button onclick="topFunction()" id="myBtn" title="Go to top">Вверх</button>
+
+
 <body>
+<div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="{% url 'home' %}">NTE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <a class="navbar-brand" href="{% url 'home' %}">NTE</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarCollapse" aria-controls="navbarCollapse"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        {% if user.is_superuser %}
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <input class="btn btn-dark" type="button" value="Форма загрузки файла"
+                           onclick="location.href='{% url 'file_upload' %}'">
+                    <input class="btn btn-dark" type="button" value="Список загруженных файлов"
+                           onclick="location.href='{% url 'files_list' %}'">
+                    <input class="btn btn-dark" type="button" value="Создать новый пост"
+                           onclick="location.href='{% url 'create_post' %}'">
+                    <input class="btn btn-dark" type="button" value="Список постов"
+                           onclick="location.href='{% url 'list_posts' %}'">
+                </div>
 
-    {% if user.is_superuser %}
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <input class="btn btn-dark" type="button" value="Форма загрузки файла"
-                       onclick="location.href='{% url 'files_upload' %}'">
-                <input class="btn btn-dark" type="button" value="Список загруженных файлов"
-                       onclick="location.href='{% url 'files_list' %}'">
-                <input class="btn btn-dark" type="button" value="Создать новый пост"
-                       onclick="location.href='{% url 'create_posts' %}'">
-                <input class="btn btn-dark" type="button" value="Список постов"
-                       onclick="location.href='{% url 'list_posts' %}'">
+
             </div>
 
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="userMenu"
+                       data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
 
-        </div>
+                        {{ user.username }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right"
+                         aria-labelledby="userMenu">
+                        <a class="dropdown-item"
+                           href="{% url 'password_change' %}">Изменить пароль</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'logout' %}">
+                            Выйти</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'admin_page' %}">
+                            Страница администратора</a>
+                    </div>
 
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="#" id="userMenu"
-                   data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">
+                </li>
+            </ul>
 
-                    {{ user.username }}
-                </a>
-                <div class="dropdown-menu dropdown-menu-right"
-                     aria-labelledby="userMenu">
-                    <a class="dropdown-item"
-                       href="{% url 'password_change' %}">Изменить пароль</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'logout' %}">
-                        Покинуть аккаунт</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'admin_page' %}">
-                        Страница администратора</a>
-                </div>
+        {% elif user.is_authenticated %}
+            <input class="btn btn-dark" type="button" value="Форма загрузки файла"
+                   onclick="location.href='{% url 'file_upload' %}'">
+            <input class="btn btn-dark" type="button" value="Список загруженных файлов"
+                   onclick="location.href='{% url 'files_list' %}'">
+            <input class="btn btn-dark" type="button" value="Создать новый пост"
+                   onclick="location.href='{% url 'create_post' %}'">
+            <input class="btn btn-dark" type="button" value="Список постов"
+                   onclick="location.href='{% url 'list_posts' %}'">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="userMenu"
+                       data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
 
-            </li>
-        </ul>
+                        {{ user.username }}
 
-    {% elif user.is_authenticated %}
-        <input class="btn btn-dark" type="button" value="Форма загрузки файла"
-               onclick="location.href='{% url 'files_upload' %}'">
-        <input class="btn btn-dark" type="button" value="Список загруженных файлов"
-               onclick="location.href='{% url 'files_list' %}'">
-        <input class="btn btn-dark" type="button" value="Создать новый пост"
-               onclick="location.href='{% url 'create_posts' %}'">
-        <input class="btn btn-dark" type="button" value="Список постов"
-               onclick="location.href='{% url 'list_posts' %}'">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="#" id="userMenu"
-                   data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right"
+                         aria-labelledby="userMenu">
+                        <a class="dropdown-item"
+                           href="{% url 'password_change' %}">Изменить пароль</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'logout' %}">
+                            Выйти</a>
 
-                    {{ user.username }}
-
-                </a>
-                <div class="dropdown-menu dropdown-menu-right"
-                     aria-labelledby="userMenu">
-                    <a class="dropdown-item"
-                       href="{% url 'password_change' %}">Изменить пароль</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'logout' %}">
-                        Покинуть аккаунт</a>
-
-                </div>
-            </li>
-        </ul>
+                    </div>
+                </li>
+            </ul>
 
 
 
-    {% else %}
+        {% else %}
 
-        <div class="ml-auto">
-            <a href="{% url 'login' %}" class="btn btn-outline-secondary">
-                Войти</a>
-            <a href="{% url 'signup' %}" class="btn btn-primary ml-2">
-                Зарегистрироваться</a>
-        </div>
-    {% endif %}
+            <div class="ml-auto">
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary">
+                    Войти</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary ml-2">
+                    Зарегистрироваться</a>
+            </div>
+        {% endif %}
 
-</nav>
+    </nav>
 
-<div class="container">
+    <div class="container">
 
 
-    <div class="container-md ">
+        <div class="container-md ">
 
-        <div class="bg-dark text-white">
-            {% block content %}
+            <div class="bg-dark text-white">
+                {% block content %}
 
-            {% endblock content %}
+                {% endblock content %}
+            </div>
         </div>
     </div>
-</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4\
 YfRvH+8abtTE1Pi6jizo"
@@ -129,5 +153,7 @@ JiSnjAK/
 l8WvCWPIPm49"
             crossorigin="anonymous"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</div>
 </body>
+
 </html>

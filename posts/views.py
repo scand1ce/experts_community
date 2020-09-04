@@ -3,7 +3,8 @@ from django.views.generic import (
     CreateView,
     ListView,
     DetailView,
-    UpdateView
+    UpdateView,
+    DeleteView
 )
 from posts.forms import CreatePostsForm
 from posts.models import Post
@@ -30,3 +31,9 @@ class UpdatePostsView(UpdateView):
     success_url = reverse_lazy('list_posts')
     template_name = 'posts/post_update.html'
     fields = '__all__'
+
+
+class DeletePostsView(DeleteView):
+    model = Post
+    success_url = reverse_lazy('list_posts')
+    template_name = 'posts/post_delete.html'
