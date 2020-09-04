@@ -12,7 +12,7 @@
     {% csrf_token %}
     {{  form|crispy   }}
     <button type="submit" value="Добавить" class="btn btn-dark">Изменить</button>
-    <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'detail_posts' post.pk %}'">
+    <input class="btn btn-dark" type="button" value="Вернуться назад" onclick="location.href='{% url 'detail_post' post.pk %}'">
 
 </form>
 </div>

@@ -30,11 +30,11 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <input class="btn btn-dark" type="button" value="Форма загрузки файла"
-                           onclick="location.href='{% url 'files_upload' %}'">
+                           onclick="location.href='{% url 'file_upload' %}'">
                     <input class="btn btn-dark" type="button" value="Список загруженных файлов"
                            onclick="location.href='{% url 'files_list' %}'">
                     <input class="btn btn-dark" type="button" value="Создать новый пост"
-                           onclick="location.href='{% url 'create_posts' %}'">
+                           onclick="location.href='{% url 'create_post' %}'">
                     <input class="btn btn-dark" type="button" value="Список постов"
                            onclick="location.href='{% url 'list_posts' %}'">
                 </div>
@@ -56,7 +56,7 @@
                            href="{% url 'password_change' %}">Изменить пароль</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{% url 'logout' %}">
-                            Покинуть аккаунт</a>
+                            Выйти</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{% url 'admin_page' %}">
                             Страница администратора</a>
@@ -67,11 +67,11 @@
 
         {% elif user.is_authenticated %}
             <input class="btn btn-dark" type="button" value="Форма загрузки файла"
-                   onclick="location.href='{% url 'files_upload' %}'">
+                   onclick="location.href='{% url 'file_upload' %}'">
             <input class="btn btn-dark" type="button" value="Список загруженных файлов"
                    onclick="location.href='{% url 'files_list' %}'">
             <input class="btn btn-dark" type="button" value="Создать новый пост"
-                   onclick="location.href='{% url 'create_posts' %}'">
+                   onclick="location.href='{% url 'create_post' %}'">
             <input class="btn btn-dark" type="button" value="Список постов"
                    onclick="location.href='{% url 'list_posts' %}'">
             <ul class="navbar-nav ml-auto">
@@ -89,7 +89,7 @@
                            href="{% url 'password_change' %}">Изменить пароль</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{% url 'logout' %}">
-                            Покинуть аккаунт</a>
+                            Выйти</a>
 
                     </div>
                 </li>
