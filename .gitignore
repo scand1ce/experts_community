@@ -3,5 +3,5 @@
 **__init__.py
 master
 /media
-db.sqlite3
+docker-compose.yml
 

@@ -25,7 +25,10 @@
             </div>
         </div>
         <div class="card-footer text-white" style="background-color: #383d41 ">
-            <h5>Пользователь {{ user }}, опубликовал это {{post.created_at|timesince }} назад, {{post.created_at }}.  </h5>
+            <h5>Пользователь <a ><font size="6" color="red" face="Arial">{{ user }}</font></a>, опубликовал это
+                {{post.created_at|timesince }} назад,
+                {{post.created_at }}.
+            </h5>
         </div>
 </div>
 
