@@ -3,9 +3,11 @@ from django.views.generic import (
     CreateView,
     ListView,
     DetailView,
-    UpdateView
+    UpdateView,
+
 )
-from posts.forms import CreatePostsForm
+from django.views.generic.edit import FormMixin
+from posts.forms import CreatePostsForm, CreateCommentsForm
 from posts.models import Post
 
 
@@ -20,13 +22,16 @@ class ListPostsView(ListView):
     template_name = 'posts/posts_list.html'
 
 
-class DetailPostsView(DetailView):
+class DetailPostsView(FormMixin, DetailView):
     model = Post
     template_name = 'posts/post_detail.html'
+    form_class = CreateCommentsForm
+
+
 
 
 class UpdatePostsView(UpdateView):
     model = Post
     success_url = reverse_lazy('list_posts')
     template_name = 'posts/post_update.html'
-    fields = '__all__'
+    fields = ('title', 'content', 'photo', 'is_published')
