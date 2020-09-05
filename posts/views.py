@@ -27,7 +27,23 @@ class DetailPostsView(FormMixin, DetailView):
     template_name = 'posts/post_detail.html'
     form_class = CreateCommentsForm
 
+    def get_success_url(self, **kwargs):
+        return reverse_lazy('detail_posts', kwargs={'pk': self.get_object().id})
 
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            print()
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.post = self.get_object()
+        self.object.author = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 
 class UpdatePostsView(UpdateView):
