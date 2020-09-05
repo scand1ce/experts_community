@@ -33,7 +33,6 @@ class DetailPostsView(FormMixin, DetailView):
     def post(self, request, *args, **kwargs):
         form = self.get_form()
         if form.is_valid():
-            print()
             return self.form_valid(form)
         else:
             return self.form_invalid(form)

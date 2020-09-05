@@ -39,4 +39,16 @@
         </div>
     </div>
 
+
+
+{% for commetn in post.comment_post.all %}
+    <hr color="white">
+    <div style="background-color: #16181b" class="col">
+    <p>Автор комментария, {{ commetn.author|safe }}.</p>
+        <h5>{{ commetn.comment_text }}</h5>
+    <p>Опубликовано {{ commetn.created_at }} </p>
+    </div>
+<hr color="white">
+{% endfor %}
+
 {% endblock content %}
