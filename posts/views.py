@@ -4,6 +4,7 @@ from django.views.generic import (
     ListView,
     DetailView,
     UpdateView,
+    DeleteView
 
 )
 from django.views.generic.edit import FormMixin
@@ -50,3 +51,9 @@ class UpdatePostsView(UpdateView):
     success_url = reverse_lazy('list_posts')
     template_name = 'posts/post_update.html'
     fields = ('title', 'content', 'photo', 'is_published')
+
+
+class DeletePostsView(DeleteView):
+    model = Post
+    success_url = reverse_lazy('list_posts')
+    template_name = 'posts/post_delete.html'

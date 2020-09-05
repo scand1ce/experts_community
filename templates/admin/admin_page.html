@@ -63,8 +63,8 @@ input.btn-dark {
                         <td>{{ user.is_staff }} </td>
                         <td>{{ user.is_active }}</td>
                         <td>{{ user.date_joined }}</td>
-                        <td><input class="btn-dark" type="button" value="Изменить" onclick="location.href='{% url 'admin_update_users' user.pk %}'"></td>
-                        <td><input class="btn-dark" type="button" value="Удалить" onclick="location.href='{% url 'admin_delete_users' user.pk %}'"></td>
+                        <td><input class="btn-dark" type="button" value="Изменить" onclick="location.href='{% url 'admin_update_user' user.pk %}'"></td>
+                        <td><input class="btn-dark" type="button" value="Удалить" onclick="location.href='{% url 'admin_delete_user' user.pk %}'"></td>
 
                     </tr>
 
@@ -78,7 +78,7 @@ input.btn-dark {
         </div>
 
     </form>
-   <input class="btn btn-dark" type="button" value="Создать нового пользователя" onclick="location.href='{% url 'admin_create_users' %}'">
+   <input class="btn btn-dark" type="button" value="Создать нового пользователя" onclick="location.href='{% url 'admin_create_user' %}'">
 
 </div>
 

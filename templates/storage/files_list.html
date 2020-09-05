@@ -62,7 +62,7 @@ input.btn-dark {
           <a href="{{ uploadedfile.file.url }}" class="btn btn-dark" target="_blank">Загрузить</a>
       </td>
       <td>
-           <input class="btn btn-dark" type="button" value="Удалить" onclick="location.href='{% url 'files_delete' uploadedfile.pk %}'">
+           <input class="btn btn-dark" type="button" value="Удалить" onclick="location.href='{% url 'file_delete' uploadedfile.pk %}'">
       </td>
 
     </tr>
