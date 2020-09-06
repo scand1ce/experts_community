@@ -29,7 +29,7 @@ class DetailPostsView(FormMixin, DetailView):
     form_class = CreateCommentsForm
 
     def get_success_url(self, **kwargs):
-        return reverse_lazy('detail_posts', kwargs={'pk': self.get_object().id})
+        return reverse_lazy('detail_post', kwargs={'pk': self.get_object().id})
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()

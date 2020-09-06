@@ -7,6 +7,8 @@
 
 {% block content %}
 
+
+
  {%for post in post_list%}
 <div class="container">
         <div class="card-header">
@@ -24,8 +26,11 @@
                 </div>
             </div>
         </div>
+
         <div class="card-footer text-white" style="background-color: #383d41 ">
-            <h5>Пользователь <a ><font size="6" color="red" face="Arial">{{ user }}</font></a>, опубликовал это
+
+            <h5>Пользователь  <font style="background-color: red ">{{ post.author }}</font>, опубликовал это
+
                 {{post.created_at|timesince }} назад,
                 {{post.created_at }}.
             </h5>

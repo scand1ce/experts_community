@@ -19,6 +19,7 @@
             <p class="card-text" align="justify">{{ post.content }}</p>
             <a href="{% url 'list_posts' %}" class="btn btn-dark text-white">Назад</a>
             <a href="{% url 'update_post' post.pk %}" class="btn btn-dark text-white">Изменить</a>
+            <a href="{% url 'delete_post' post.pk %}" class="btn btn-dark text-white">Удалить</a>
         </div>
         <div class="card-footer text-muted">
             <p>Добавлено {{ post.created_at }}.</p>
@@ -42,7 +43,7 @@
 
 
 
-{% for commetn in post.comment_post.all %}
+{% for commetn in post.comments.all %}
     <hr color="white">
     <div style="background-color: #16181b" class="col">
     <p>Автор комментария, {{ commetn.author|safe }}.</p>

@@ -20,10 +20,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='Пост', blank=True, null=True,
-                             related_name='comment_post')
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Автор комментария', blank=True,
-                               null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='Пост', blank=False, null=False,
+                             related_name='comments')
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Автор комментария', blank=False,
+                               null=False)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Публикация')
     comment_text = models.TextField(max_length=600, blank=True, verbose_name='Текст комментария')
 
