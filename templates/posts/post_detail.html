@@ -1,26 +1,59 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-<div class="card text-center" style="background-color: #16181b">
-  <div class="card-header">
-    <h2 class="card-title">{{ post.title }}</h2>
-  </div>
-  <div class="card-body">
-          {%if post.photo%}
-              <a href="{{ post.photo.url }}" class="btn btn-dark" target="_blank"><img src="{{post.photo.url}}"
-                                                     alt="" width="100" height="60" class="mr-3"></a>
 
-                {%endif%}
-    <p class="card-text" align="justify">{{ post.content }}</p>
-    <a href="{% url 'list_posts' %}" class="btn btn-dark text-white">Назад</a>
-    <a href="{% url 'update_post' post.pk %}" class="btn btn-dark text-white">Изменить</a>
-    <a href="{% url 'delete_post' post.pk %}" class="btn btn-dark text-white">Удалить</a>
+    <div class="card text-center" style="background-color: #16181b">
+        <div class="card-header">
+            <h2 class="card-title">{{ post.title }}</h2>
+        </div>
+        <div class="card-body">
+            {% if post.photo %}
+                <a href="{{ post.photo.url }}" class="btn btn-dark" target="_blank"><img src="{{ post.photo.url }}"
+                                                                                         alt="" width="100" height="60"
+                                                                                         class="mr-3"></a>
 
-  </div>
-  <div class="card-footer text-muted">
-    <p>Добавлено {{ post.created_at }}.</p>
-  </div>
-</div>
+            {% endif %}
+            <p class="card-text" align="justify">{{ post.content }}</p>
+            <a href="{% url 'list_posts' %}" class="btn btn-dark text-white">Назад</a>
+            <a href="{% url 'update_post' post.pk %}" class="btn btn-dark text-white">Изменить</a>
+            <a href="{% url 'delete_post' post.pk %}" class="btn btn-dark text-white">Удалить</a>
+        </div>
+        <div class="card-footer text-muted">
+            <p>Добавлено {{ post.created_at }}.</p>
+
+        </div>
+    </div>
+    <div class="comment">
+        <hr color="white">
+        <h3 align="center">Комментарии</h3>
+        <hr color="white">
+
+    </div>
+    <div class="card text-center" style="background-color: #16181b">
+        <div class="col-lg-5" >
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" value="Добавить" class="btn btn-dark">Добавить</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+{% for commetn in post.comments.all %}
+    <hr color="white">
+    <div style="background-color: #16181b" class="col">
+    <p>Автор комментария, {{ commetn.author|safe }}.</p>
+        <h5>{{ commetn.comment_text }}</h5>
+    <p>Опубликовано {{ commetn.created_at }} </p>
+    </div>
+<hr color="white">
+{% endfor %}
+
 {% endblock content %}
+

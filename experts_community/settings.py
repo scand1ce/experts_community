@@ -1,7 +1,6 @@
 import os
 
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -35,8 +34,9 @@ INSTALLED_APPS = [
 
     #  <--- 
     'crispy_forms',
-    'allauth',
     'registration',
+    'django_extensions'
+
 
 ]
 
@@ -77,11 +77,14 @@ WSGI_APPLICATION = 'experts_community.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'example',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 
@@ -139,3 +142,5 @@ LOGOUT_REDIRECT_URL = 'home'
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.AllowAllUsersModelBackend',)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+SHELL_PLUS = "ipython"

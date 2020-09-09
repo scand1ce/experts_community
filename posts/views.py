@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -5,15 +6,22 @@ from django.views.generic import (
     DetailView,
     UpdateView,
     DeleteView
+
 )
-from posts.forms import CreatePostsForm
+from django.views.generic.edit import FormMixin
+from posts.forms import CreatePostsForm, CreateCommentsForm
 from posts.models import Post
+from users.models import CustomUser
 
 
-class CreatePostsView(CreateView):
+class CreatePostsView(LoginRequiredMixin, CreateView):
     form_class = CreatePostsForm
     success_url = reverse_lazy('list_posts')
     template_name = 'posts/posts_create.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class ListPostsView(ListView):
@@ -21,16 +29,34 @@ class ListPostsView(ListView):
     template_name = 'posts/posts_list.html'
 
 
-class DetailPostsView(DetailView):
+class DetailPostsView(FormMixin, DetailView):
     model = Post
     template_name = 'posts/post_detail.html'
+    form_class = CreateCommentsForm
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy('detail_post', kwargs={'pk': self.get_object().pk})
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.post = self.get_object()
+        self.object.author = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 
 class UpdatePostsView(UpdateView):
     model = Post
     success_url = reverse_lazy('list_posts')
     template_name = 'posts/post_update.html'
-    fields = '__all__'
+    fields = ('title', 'content', 'photo', 'is_published')
 
 
 class DeletePostsView(DeleteView):

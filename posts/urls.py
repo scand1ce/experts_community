@@ -8,7 +8,6 @@ from posts.views import (
 )
 
 urlpatterns = [
-
     path('post/<int:pk>/delete/', DeletePostsView.as_view(), name='delete_post'),
     path('post/<int:pk>/update/', UpdatePostsView.as_view(), name='update_post'),
     path('post/<int:pk>/', DetailPostsView.as_view(), name='detail_post'),

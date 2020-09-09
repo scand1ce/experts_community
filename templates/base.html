@@ -17,6 +17,7 @@
 
 
 <body>
+
 <div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <a class="navbar-brand" href="{% url 'home' %}">NTE</a>
@@ -44,7 +45,7 @@
 
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="#" id="userMenu"
+                    <a class="nav-link dropdown-toggle" id="userMenu"
                        data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
 
@@ -71,7 +72,7 @@
             <input class="btn btn-dark" type="button" value="Список загруженных файлов"
                    onclick="location.href='{% url 'files_list' %}'">
             <input class="btn btn-dark" type="button" value="Создать новый пост"
-                   onclick="location.href='{% url 'create_post' %}'">
+                   onclick="location.href='{% url 'create_post'  %}'">
             <input class="btn btn-dark" type="button" value="Список постов"
                    onclick="location.href='{% url 'list_posts' %}'">
             <ul class="navbar-nav ml-auto">

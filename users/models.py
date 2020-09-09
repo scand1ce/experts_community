@@ -16,4 +16,3 @@ class CustomUser(AbstractUser):
 
     def get_absolute_url(self):
         return reverse('admin_page', args=[str(self.id)])
-
