@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -10,12 +11,17 @@ from django.views.generic import (
 from django.views.generic.edit import FormMixin
 from posts.forms import CreatePostsForm, CreateCommentsForm
 from posts.models import Post
+from users.models import CustomUser
 
 
-class CreatePostsView(CreateView):
+class CreatePostsView(LoginRequiredMixin, CreateView):
     form_class = CreatePostsForm
     success_url = reverse_lazy('list_posts')
     template_name = 'posts/posts_create.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class ListPostsView(ListView):
@@ -29,7 +35,7 @@ class DetailPostsView(FormMixin, DetailView):
     form_class = CreateCommentsForm
 
     def get_success_url(self, **kwargs):
-        return reverse_lazy('detail_post', kwargs={'pk': self.get_object().id})
+        return reverse_lazy('detail_post', kwargs={'pk': self.get_object().pk})
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()

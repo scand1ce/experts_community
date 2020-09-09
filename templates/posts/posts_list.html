@@ -29,8 +29,7 @@
 
         <div class="card-footer text-white" style="background-color: #383d41 ">
 
-            <h5>Пользователь  <font style="background-color: red ">{{ post.author }}</font>, опубликовал это
-
+            <h5>Опубликовано пользователем {{ post.author }},
                 {{post.created_at|timesince }} назад,
                 {{post.created_at }}.
             </h5>
