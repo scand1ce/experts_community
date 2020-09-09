@@ -1,7 +1,6 @@
 import os
 
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +36,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'registration',
+    'django_extensions'
+
 
 ]
 
@@ -142,3 +143,5 @@ LOGOUT_REDIRECT_URL = 'home'
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.AllowAllUsersModelBackend',)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+SHELL_PLUS = "ipython"
