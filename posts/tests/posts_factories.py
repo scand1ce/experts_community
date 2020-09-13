@@ -1,7 +1,7 @@
 import factory
 from django.utils.timezone import now
 from posts import models
-from users.tests.factories import UserFactory
+from users.tests.users_factories import UserFactory
 
 
 class PostFactory(factory.django.DjangoModelFactory):
@@ -19,22 +19,5 @@ class PostFactory(factory.django.DjangoModelFactory):
 
 
 
-
-'''
-pipenv shell
-
-python manage.py shell_plus
-
-from posts.tests.factories import *
-
-# Builds and saves a User and a Post
-
->>> post = PostFactory()
-
->>> post.id is None  # Post has been 'saved'
-False
-
->>> post.author.id is None  # post.author has been saved
-False
-
-'''
+# from posts.tests.posts_factories import *
+# post = PostFactory()

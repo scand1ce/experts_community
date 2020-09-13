@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'my-admin.apps.AdminConfig',
     'storage-app.apps.StorageConfig',
     'posts.apps.PostsConfig',
+    'commands',
 
 
     #  <--- 

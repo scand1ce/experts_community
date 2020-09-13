@@ -14,14 +14,3 @@ class UserFactory(factory.django.DjangoModelFactory):
     is_active = True
     is_staff = True
     password = factory.PostGenerationMethodCall('set_password', 'defaultpassword')
-
-
-'''
-pipenv shell
-
-python manage.py shell_plus
-
-from users.tests.factories import *
-
-UserFactory().save()
-'''
