@@ -13,7 +13,7 @@ class CreatePostsForm(forms.ModelForm):
     def clean_title(self):
         title = self.cleaned_data['title']
         if re.match(r'\d', title):
-            raise ValidationError('Название должно начинаться с букы!')
+            raise ValidationError('Название должно начинаться с буквы!')
         return title
 
 
