@@ -13,7 +13,6 @@ from posts.forms import CreatePostsForm, CreateCommentsForm
 from posts.models import Post
 
 
-
 class CreatePostsView(LoginRequiredMixin, CreateView):
     form_class = CreatePostsForm
     success_url = reverse_lazy('list_posts')
@@ -67,6 +66,7 @@ class UpdatePostsView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+
 
 class DeletePostsView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
