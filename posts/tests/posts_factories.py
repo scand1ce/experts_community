@@ -12,7 +12,7 @@ class PostFactory(factory.django.DjangoModelFactory):
     title = factory.Sequence(lambda n: 'TEST_title%s' % n)
     created_at = factory.LazyAttribute(lambda x: now())
     is_published = True
-    content = factory.Sequence(lambda n: 'TEST_content%s' % n)
+    content = factory.Faker('paragraph')  # factory.Sequence(lambda n: 'TEST_content%s' % n)
     photo = factory.django.ImageField(color='blue')
 
 
