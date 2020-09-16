@@ -1,5 +1,5 @@
+import datetime
 import factory
-from django.utils.timezone import now
 from posts import models
 from posts.tests.posts_factories import PostFactory
 from users.tests.users_factories import UserFactory
@@ -11,5 +11,5 @@ class CommentFactory(factory.django.DjangoModelFactory):
 
     author = factory.SubFactory(UserFactory)
     post = factory.SubFactory(PostFactory)
-    created_at = factory.LazyAttribute(lambda x: now())
+    created_at = factory.LazyFunction(datetime.datetime.now)
     comment_text = factory.Faker('paragraph')
