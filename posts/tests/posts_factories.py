@@ -1,7 +1,9 @@
+import datetime
 import factory
-from django.utils.timezone import now
+from faker import Factory
 from posts import models
 from users.tests.users_factories import UserFactory
+fake = Factory.create()
 
 
 class PostFactory(factory.django.DjangoModelFactory):
@@ -9,15 +11,8 @@ class PostFactory(factory.django.DjangoModelFactory):
         model = models.Post
 
     author = factory.SubFactory(UserFactory)
-    title = factory.Sequence(lambda n: 'TEST_title%s' % n)
-    created_at = factory.LazyAttribute(lambda x: now())
+    title = fake.sentence(nb_words=3)
+    created_at = factory.LazyFunction(datetime.datetime.now)
     is_published = True
-    content = factory.Faker('paragraph')  # factory.Sequence(lambda n: 'TEST_content%s' % n)
+    content = fake.text()
     photo = factory.django.ImageField(color='blue')
-
-
-
-
-
-# from posts.tests.posts_factories import *
-# post = PostFactory()
