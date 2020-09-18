@@ -4,11 +4,11 @@ from users.models import CustomUser
 
 class Post(models.Model):
     title = models.CharField(max_length=150, verbose_name='Наименования')
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=False, blank=False)
     content = models.TextField(blank=True, verbose_name='Контент')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Публикация')
     photo = models.ImageField(upload_to='media/photos/%Y/%m/%d/', verbose_name='Фото', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='Состояние')
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Автор поста')
 
     def __str__(self):
         return self.title
@@ -17,7 +17,6 @@ class Post(models.Model):
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
         ordering = ['-created_at', '-title']
-
 
 
 class Comment(models.Model):

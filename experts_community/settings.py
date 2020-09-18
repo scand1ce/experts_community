@@ -31,11 +31,14 @@ INSTALLED_APPS = [
     'my-admin.apps.AdminConfig',
     'storage-app.apps.StorageConfig',
     'posts.apps.PostsConfig',
+    'commands',
+
 
     #  <--- 
     'crispy_forms',
     'registration',
-    'django_extensions'
+    'django_extensions',
+
 
 
 ]

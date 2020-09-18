@@ -3,7 +3,18 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<style>
+img {
+  border: 1px solid #f9f9f9;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
 
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+</style>
 
     <div class="card text-center" style="background-color: #16181b">
         <div class="card-header">
@@ -11,17 +22,26 @@
         </div>
         <div class="card-body">
             {% if post.photo %}
-                <a href="{{ post.photo.url }}" class="btn btn-dark" target="_blank"><img src="{{ post.photo.url }}"
-                                                                                         alt="" width="100" height="60"
-                                                                                         class="mr-3"></a>
+            <a target="_blank" href="{{ post.photo.url }}"><img src="{{ post.photo.url }}" alt="Forest"
+                                                                style="width:150px"></a>
 
             {% endif %}
-            <p class="card-text" align="justify">{{ post.content }}</p>
+
+            {% if user.pk == post.author.pk %}
+<p class="card-text" align="justify">{{ post.content }}</p>
             <a href="{% url 'list_posts' %}" class="btn btn-dark text-white">Назад</a>
             <a href="{% url 'update_post' post.pk %}" class="btn btn-dark text-white">Изменить</a>
             <a href="{% url 'delete_post' post.pk %}" class="btn btn-dark text-white">Удалить</a>
+
+
+{% else %}
+            <p class="card-text" align="justify">{{ post.content }}</p>
+            <a href="{% url 'list_posts' %}" class="btn btn-dark text-white">Назад</a>
+
         </div>
+        {% endif %}
         <div class="card-footer text-muted">
+            <p>Автор {{ post.author }}</p>
             <p>Добавлено {{ post.created_at }}.</p>
 
         </div>
