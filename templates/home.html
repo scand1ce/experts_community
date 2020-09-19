@@ -3,20 +3,22 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-
     {% if user.is_authenticated %}
         <div class="card" style="background-color: #16181b ">
-  <div class="card-body">
-    Привет, {{ user.username }}!
-    <p><a href="{% url 'logout' %}">Выйти</a></p>
-  </div>
+            <div class="card-body">
+                Привет, {{ user.username }}!
+                                <br>
+                <input class="btn btn-dark" type="button" value="Выйти"
+                       onclick="location.href='{% url 'logout' %}'">
+            </div>
+
         </div>
 
-{% else %}
+
+    {% else %}
         <h3>Войдите в аккаунт или зарегистрируйтесь!</h3>
+    {% endif %}
 
 
-
-{% endif %}
 
 {% endblock content %}

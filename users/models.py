@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, UserManager
 from django.urls import reverse
 
 
@@ -12,7 +12,11 @@ class CustomUser(AbstractUser):
     body = models.TextField()
 
     def __str__(self):
-        return self.username
+        return self.get_full_name()
 
     def get_absolute_url(self):
         return reverse('admin_page', args=[str(self.id)])
+
+    def get_full_name(self):
+        full_name = '%s %s' % (self.first_name, self.last_name)
+        return full_name.strip()
