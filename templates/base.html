@@ -30,14 +30,7 @@
         {% if user.is_superuser %}
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <input class="btn btn-dark" type="button" value="Форма загрузки файла"
-                           onclick="location.href='{% url 'file_upload' %}'">
-                    <input class="btn btn-dark" type="button" value="Список загруженных файлов"
-                           onclick="location.href='{% url 'files_list' %}'">
-                    <input class="btn btn-dark" type="button" value="Создать новый пост"
-                           onclick="location.href='{% url 'create_post' %}'">
-                    <input class="btn btn-dark" type="button" value="Список постов"
-                           onclick="location.href='{% url 'list_posts' %}'">
+
                 </div>
 
 
@@ -49,7 +42,7 @@
                        data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
 
-                        {{ user.username }}
+                        {{ user }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right"
                          aria-labelledby="userMenu">
@@ -67,14 +60,7 @@
             </ul>
 
         {% elif user.is_authenticated %}
-            <input class="btn btn-dark" type="button" value="Форма загрузки файла"
-                   onclick="location.href='{% url 'file_upload' %}'">
-            <input class="btn btn-dark" type="button" value="Список загруженных файлов"
-                   onclick="location.href='{% url 'files_list' %}'">
-            <input class="btn btn-dark" type="button" value="Создать новый пост"
-                   onclick="location.href='{% url 'create_post'  %}'">
-            <input class="btn btn-dark" type="button" value="Список постов"
-                   onclick="location.href='{% url 'list_posts' %}'">
+
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="userMenu"

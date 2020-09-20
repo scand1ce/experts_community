@@ -4,19 +4,124 @@
 
 {% block content %}
 
-    {% if user.is_authenticated %}
-        <div class="card" style="background-color: #16181b ">
-  <div class="card-body">
-    Привет, {{ user.username }}!
-    <p><a href="{% url 'logout' %}">Выйти</a></p>
-  </div>
+{% if user.is_authenticated %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+                  input.hidden {
+    position: absolute;
+    left: 2000px;
+}
+
+#profile-image1 {
+    cursor: pointer;
+
+     width: 100px;
+    height: 100px;
+	border:2px solid #03b1ce ;}
+	.tital{ font-size:16px; font-weight:500;}
+	 .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}
+
+
+</style>
+<br>
+<div class="container" >
+    <div class="row">
+
+        <div class="col-md-15 ">
+
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Личный кабинет</h4></div>
+                <div class="panel-body">
+
+                    <div class="box box-info">
+
+                        <div class="box-body">
+                            <div class="col-sm-6">
+                                <div align="center">
+                                    <img alt="User Pic"
+                                         src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+                                         id="profile-image1" class="img-circle img-responsive">
+
+                                    <input id="profile-image-upload" class="hidden" type="file">
+                                    <div style="color:#999;">нажмите на фото чтобы сменить его</div>
+                                    <!--Upload Image Js And Css-->
+
+
+                                </div>
+
+                                <br>
+
+                                <!-- /input-group -->
+                            </div>
+                            <div class="col-sm-6">
+                                <h4 style="color:#00b1b1;">{{user}}</h4></span>
+                                <span><p style="color:#00b1b1;">{{user.department}}</p></span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <hr style="margin:5px 0 5px 0;">
+
+                            <div style="background-color: #00b1b1">
+                                <div class="col-sm-5 col-xs-6 tital ">Имя:</div>
+                                <div class="col-sm-7 col-xs-6 ">{{user.first_name}}</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+
+                                <div class="col-sm-5 col-xs-6 tital ">Фамилия:</div>
+                                <div class="col-sm-7"> {{user.last_name}}</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <input class="btn btn-dark" type="button" value="Форма загрузки файла"
+                                       onclick="location.href='{% url 'file_upload' %}'">
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <input class="btn btn-dark" type="button" value="Список загруженных файлов"
+                                       onclick="location.href='{% url 'files_list' %}'">
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <input class="btn btn-dark" type="button" value="Создать новый пост"
+                                       onclick="location.href='{% url 'create_post'  %}'">
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <input class="btn btn-dark" type="button" value="Список постов"
+                                       onclick="location.href='{% url 'list_posts' %}'">
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <script>
+              $(function() {
+    $('#profile-image1').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+});
+
+
+            </script>
+
+
         </div>
-
-{% else %}
-        <h3>Войдите в аккаунт или зарегистрируйтесь!</h3>
-
+    </div>
+</div>
 
 
-{% endif %}
 
-{% endblock content %}
+    {% else %}
+    <h3>Войдите в аккаунт или зарегистрируйтесь!</h3>
+
+
+    {% endif %}
+
+    {% endblock content %}
