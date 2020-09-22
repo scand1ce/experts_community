@@ -20,3 +20,12 @@ class CustomUser(AbstractUser):
     def get_full_name(self):
         full_name = '%s %s' % (self.first_name, self.last_name)
         return full_name.strip()
+
+
+class Avatar(models.Model):
+    avatar = models.ImageField(upload_to='media/profile/%Y/%m/%d/', verbose_name='Аватар', blank=True)
+    user_ava = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Автор комментария', blank=False,
+                                 null=False)
+
+    def __str__(self):
+        return str(self.user_ava)
