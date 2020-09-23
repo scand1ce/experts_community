@@ -19,7 +19,6 @@ class SignUpView(CreateView):
         form = self.form_class(requset.POST, requset.FILES)
 
         if form.is_valid():
-            form.instance.user = self.request.user
             form.save()
             return redirect(self.success_url)
         else:
