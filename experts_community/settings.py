@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     #  --->
     'users.apps.UsersConfig',
     'my-admin.apps.AdminConfig',
-    'storage-app.apps.StorageConfig',
+    'storage_app.apps.StorageConfig',
     'posts.apps.PostsConfig',
     'commands',
 

@@ -23,4 +23,3 @@ class CustomUser(AbstractUser):
         return full_name.strip()
 
 
-
