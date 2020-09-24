@@ -4,6 +4,7 @@ from django.urls import reverse
 
 
 class CustomUser(AbstractUser):
+    avatar = models.ImageField(upload_to='media/profile/%Y/%m/%d/', verbose_name='Аватар', blank=True)
     department = models.CharField(max_length=50, blank=False, verbose_name='Название отдела')
     first_name = models.CharField(max_length=50, blank=True, verbose_name='Имя')
     last_name = models.CharField(max_length=50, blank=True, verbose_name='Фамилия')
@@ -12,7 +13,13 @@ class CustomUser(AbstractUser):
     body = models.TextField()
 
     def __str__(self):
-        return self.username
+        return self.get_full_name()
 
     def get_absolute_url(self):
         return reverse('admin_page', args=[str(self.id)])
+
+    def get_full_name(self):
+        full_name = '%s %s' % (self.first_name, self.last_name)
+        return full_name.strip()
+
+

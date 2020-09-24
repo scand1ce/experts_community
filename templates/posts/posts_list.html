@@ -7,8 +7,49 @@
 
 {% block content %}
 
+ {%for post in post_list%}
+
+<link rel="stylesheet" href="https://bootstraptema.ru/snippets/effect/2016/ihe/effects.css">
+<link rel="stylesheet" href="https://bootstraptema.ru/snippets/effect/2016/ihe/stylesheet.css">
 
 
+<!-- Page Content -->
+
+<div class="container" style="background-color: #16181b ">
+
+<div class="hover ehover12"
+     style=" background-image:
+     url('https://img5.goodfon.ru/original/1920x1080/0/57/uaz-mashina-staraia-mashina.jpg');">
+{%if post.photo%}
+ <img class="img-responsive" src="{{post.photo.url}}" alt="Forest" style="width:500px">
+    {%endif%}
+ <div class="overlay">
+ <h2 >{{post.title}}</h2>
+               <hr> <button class="info nullbutton" data-toggle="modal" data-target="#modal12" >
+     <a href="{% url 'detail_post' post.pk %}" class="btn bg-dark text-white">Смотреть полностью</a>
+ </button>
+     <hr>
+<p class="card-text">{{post.content|safe|truncatewords:35}}</p>
+              <hr>
+
+ </div>
+     <div class="card-footer text-white" style="background-color: #16181b ">
+
+            <h5>Опубликовано пользователем {{ post.author }},
+                {{post.created_at|timesince }} назад,
+                {{post.created_at }}.
+            </h5>
+        </div>
+ </div>
+
+</div>
+
+
+
+{% endfor%}
+
+
+{% comment %}
  {%for post in post_list%}
 <div class="container">
         <div class="card-header">
@@ -37,5 +78,5 @@
 </div>
 
     {%endfor%}
-
+{% endcomment %}
 {% endblock content %}

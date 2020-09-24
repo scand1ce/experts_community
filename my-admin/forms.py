@@ -18,7 +18,7 @@ class AdminUserForm(forms.Form):
             'email',
             'department',
             'is_active',
-            'is_staff'
+            'is_staff',
 
         ]
 

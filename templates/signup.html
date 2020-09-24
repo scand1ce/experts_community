@@ -12,7 +12,7 @@
     <h2 style="background-color:rgb(46, 40, 73);">Регистрация</h2>
             <div class="card" style="background-color: #16181b ">
   <div class="card-body">
-    <form method="post" id="form1">
+    <form method="post" id="form1" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#modal1">Зарегистрироваться</button>

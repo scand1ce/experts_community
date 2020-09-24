@@ -7,14 +7,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('posts/', include('posts.urls')),
-    path('storage-app/', include('storage-app.urls')),
+    path('storage/', include('storage.urls')),
     path('my-admin/', include('my-admin.urls')),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-'''if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)'''
-
