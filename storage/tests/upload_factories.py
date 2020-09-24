@@ -1,5 +1,5 @@
 import factory
-from storage_app import models
+from storage import models
 from faker import Factory
 from users.tests.users_factories import UserFactory
 import random

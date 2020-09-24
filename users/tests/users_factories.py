@@ -15,7 +15,7 @@ class UserFactory(factory.django.DjangoModelFactory):
     last_name = factory.Faker('last_name')
     email = fake.email()  # 'ascii_company_email' -->
     # AttributeError: 'Generator' object has no attribute 'ascii_company_email'
-    department = factory.Faker('department')
+    department = factory.Sequence(lambda n: 'NTE%s' % n)
     is_superuser = False
     is_active = True
     is_staff = False

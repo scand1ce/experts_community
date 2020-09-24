@@ -26,5 +26,4 @@ class SignUpView(CreateView):
 
 
 class HomePageView(TemplateView):
-    model = CustomUser
     template_name = 'home.html'
