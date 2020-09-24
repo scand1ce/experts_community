@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'my-admin.apps.AdminConfig',
     'storage.apps.StorageConfig',
     'posts.apps.PostsConfig',
+    'chat.apps.ChatConfig',
     'commands',
 
 
