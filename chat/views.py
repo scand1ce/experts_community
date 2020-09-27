@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from chat.models import Chat
+from django.views.generic import (CreateView)
 
-# Create your views here.
+
+class ChatView(CreateView):
+    model = Chat
+    pass
