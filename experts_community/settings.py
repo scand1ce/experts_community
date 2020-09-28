@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'experts_community.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd51bji6ng24oib',
-        'USER': 'uyzlfemktneawj',
+        'NAME': 'df2s9k8jcnjhbs',
+        'USER': 'uixkwiwkmgcnvu',
         'PORT': 5432,
-        'PASSWORD': 'd34b9e35bd4943d3739a577d0c2eb939ac0f9bee690a01fcbb9c29db99c611b2',
-        'HOST': 'postgres://uyzlfemktneawj:d34b9e35bd4943d3739a577d0c2eb939ac0f9bee690a01fcbb9c29db99c611b2@ec2-52-200-82-50.compute-1.amazonaws.com:5432/d51bji6ng24oib',
+        'PASSWORD': 'cc81c39cfe5a0a9b9a4ea9694a374d5a24707dfe7b6d502cc27bd83da495023b',
+        'HOST': 'postgres://uixkwiwkmgcnvu:cc81c39cfe5a0a9b9a4ea9694a374d5a24707dfe7b6d502cc27bd83da495023b@ec2-3-248-4-172.eu-west-1.compute.amazonaws.com:5432/df2s9k8jcnjhbs',
 
     }
 }
