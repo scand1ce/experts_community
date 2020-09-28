@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "00decee38c02389993bfe1b12619515a93c22b057eaece0772bde27b508e8034"
+            "sha256": "c627826fbda4601bacf4f77d7b5626cb54e5f76ca7335fb0476c6c90c6d0dc11"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,6 +38,13 @@
             ],
             "markers": "sys_platform == 'win32'",
             "version": "==0.4.3"
+        },
+        "confusable-homoglyphs": {
+            "hashes": [
+                "sha256:3b4a0d9fa510669498820c91a0bfc0c327568cecec90648cf3819d4a6fc6a751",
+                "sha256:e3ce611028d882b74a5faa69e3cbb5bd4dcd9f69936da6e73d33eda42c917944"
+            ],
+            "version": "==3.2.0"
         },
         "decorator": {
             "hashes": [
@@ -84,6 +91,14 @@
             ],
             "index": "pypi",
             "version": "==0.3.1"
+        },
+        "django-registration": {
+            "hashes": [
+                "sha256:44ca3d63869c91174cef9ccf244ec87ad296e3d705983e9e98150cee03938dda",
+                "sha256:88e6c2aa698320b87c5d3cbb941ef7acde69ced109bc00ce35acfccfbf00ab71"
+            ],
+            "index": "pypi",
+            "version": "==3.1.1"
         },
         "factory-boy": {
             "hashes": [
