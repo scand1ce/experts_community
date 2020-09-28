@@ -1,7 +1,7 @@
 import os
-"""import django_heroku
+import django_heroku
+django_heroku.settings(locals())
 
-django_heroku.settings(locals())"""
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'experts_community.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
@@ -91,6 +91,17 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': 5432,
         'CONN_MAX_AGE': 500
+    }
+}"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd51bji6ng24oib',
+        'USER': 'uyzlfemktneawj',
+        'PORT': 5432,
+        'PASSWORD': 'd34b9e35bd4943d3739a577d0c2eb939ac0f9bee690a01fcbb9c29db99c611b2',
+        'HOST': 'postgres://uyzlfemktneawj:d34b9e35bd4943d3739a577d0c2eb939ac0f9bee690a01fcbb9c29db99c611b2@ec2-52-200-82-50.compute-1.amazonaws.com:5432/d51bji6ng24oib',
+
     }
 }
 
