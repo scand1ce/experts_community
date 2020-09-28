@@ -15,7 +15,7 @@ django-extensions = "*"
 factory-boy = "*"
 ipython = "*"
 django-heroku = "*"
-django-registration = "*"
+
 
 [requires]
 python_version = "3.8"
