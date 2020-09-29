@@ -95,13 +95,13 @@ WSGI_APPLICATION = 'experts_community.wsgi.application'
 }"""
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'df2s9k8jcnjhbs',
-        'USER': 'uixkwiwkmgcnvu',
-        'PORT': 5432,
-        'PASSWORD': 'cc81c39cfe5a0a9b9a4ea9694a374d5a24707dfe7b6d502cc27bd83da495023b',
-        'HOST': 'postgres://uixkwiwkmgcnvu:cc81c39cfe5a0a9b9a4ea9694a374d5a24707dfe7b6d502cc27bd83da495023b@ec2-3-248-4-172.eu-west-1.compute.amazonaws.com:5432/df2s9k8jcnjhbs',
-
+            "Host" : "ec2-54-165-164-38.compute-1.amazonaws.com",
+            "Database": "db49ktf24rpgs2",
+            "User": 'wqfmuacpniazka',
+            "Port": "5432",
+            "Password": "afab7297e98141ad4261d8e25a9698f9a7ac098d40ab2fbc36b37f60399f2702",
+            "URI": "postgres://wqfmuacpniazka:afab7297e98141ad4261d8e25a9698f9a7ac098d40ab2fbc36b37f60399f2702@ec2-54-165-164-38.compute-1.amazonaws.com:5432/db49ktf24rpgs2",
+            "Heroku CLI": "heroku pg:psql postgresql-globular-87865 --app exp-new-7598",
     }
 }
 
