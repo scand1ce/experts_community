@@ -98,7 +98,7 @@ DATABASES = {
             "NAME": "db49ktf24rpgs2",
             "USER": 'wqfmuacpniazka',
             "PASSWORD": "afab7297e98141ad4261d8e25a9698f9a7ac098d40ab2fbc36b37f60399f2702",
-            "HOST" : "ec2-54-165-164-38.compute-1.amazonaws.com",
+            "HOST": "ec2-54-165-164-38.compute-1.amazonaws.com",
             "PORT": "5432",
             "URI": "postgres://wqfmuacpniazka:afab7297e98141ad4261d8e25a9698f9a7ac098d40ab2fbc36b37f60399f2702@ec2-54-165-164-38.compute-1.amazonaws.com:5432/db49ktf24rpgs2",
             "Heroku CLI": "heroku pg:psql postgresql-globular-87865 --app exp-new-7598",
