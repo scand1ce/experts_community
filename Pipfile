@@ -15,6 +15,9 @@ django-extensions = "*"
 factory-boy = "*"
 ipython = "*"
 django-heroku = "*"
+pip = "*"
+Pillow = "*"
+
 
 
 [requires]
