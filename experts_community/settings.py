@@ -36,7 +36,7 @@ INSTALLED_APPS = [
 
     #  <--- 
     'crispy_forms',
-    'registration',
+    #'registration',
     'django_extensions',
 
 
