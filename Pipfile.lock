@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "86f6534c442bc4f97e62026ff4622b94231f180bb47b541bcdf8696860b83cee"
+            "sha256": "0f466fa9657b6d77ef980ebecff67b12cdce188e6f77758aeb9804378a3e81eb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,6 +38,13 @@
             ],
             "markers": "sys_platform == 'win32'",
             "version": "==0.4.3"
+        },
+        "confusable-homoglyphs": {
+            "hashes": [
+                "sha256:3b4a0d9fa510669498820c91a0bfc0c327568cecec90648cf3819d4a6fc6a751",
+                "sha256:e3ce611028d882b74a5faa69e3cbb5bd4dcd9f69936da6e73d33eda42c917944"
+            ],
+            "version": "==3.2.0"
         },
         "decorator": {
             "hashes": [
@@ -84,6 +91,14 @@
             ],
             "index": "pypi",
             "version": "==0.3.1"
+        },
+        "django-registration": {
+            "hashes": [
+                "sha256:44ca3d63869c91174cef9ccf244ec87ad296e3d705983e9e98150cee03938dda",
+                "sha256:88e6c2aa698320b87c5d3cbb941ef7acde69ced109bc00ce35acfccfbf00ab71"
+            ],
+            "index": "pypi",
+            "version": "==3.1.1"
         },
         "factory-boy": {
             "hashes": [
@@ -258,7 +273,7 @@
                 "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c",
                 "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==2.8.1"
         },
         "pytz": {
@@ -273,7 +288,7 @@
                 "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259",
                 "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.15.0"
         },
         "sqlparse": {
