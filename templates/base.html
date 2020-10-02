@@ -27,7 +27,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        {% if user.is_superuser %}
+        {% if user.is_superuser or  user.is_staff %}
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <input class="btn btn-dark" type="button" value="Форма загрузки файла"

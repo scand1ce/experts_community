@@ -8,12 +8,17 @@ verify_ssl = true
 [packages]
 django = "*"
 gunicorn = "*"
-whitenoise = "==4.1.4"
+whitenoise = "*"
 django-crispy-forms = "*"
 psycopg2-binary = "*"
 django-extensions = "*"
+django-registration = "*"
 factory-boy = "*"
 ipython = "*"
+django-heroku = "*"
+pip = "*"
+Pillow = "*"
+
 
 
 [requires]
