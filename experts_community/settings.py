@@ -1,5 +1,5 @@
 import os
-
+import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,8 +37,9 @@ INSTALLED_APPS = [
 
     #  <--- 
     'crispy_forms',
-    'registration',
+    #'registration',
     'django_extensions',
+
 
 
 
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'experts_community.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
@@ -89,6 +90,19 @@ DATABASES = {
         'PASSWORD': 'example',
         'HOST': 'localhost',
         'PORT': 5432,
+        'CONN_MAX_AGE': 500
+    }
+}"""
+DATABASES = {
+    'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            "NAME": "d14l71t5dv496k",
+            "USER": 'nrpqglhixflmvw',
+            "PASSWORD": "b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c",
+            "HOST": "ec2-34-231-56-78.compute-1.amazonaws.com",
+            "PORT": "5432",
+            "URI": "postgres://nrpqglhixflmvw:b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c@ec2-34-231-56-78.compute-1.amazonaws.com:5432/d14l71t5dv496k",
+            "Heroku CLI": "heroku pg:psql postgresql-acute-67518 --app experts-community",
     }
 }
 
@@ -126,6 +140,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -135,7 +150,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -148,3 +163,5 @@ AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.AllowAllUsersModelBacke
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 SHELL_PLUS = "ipython"
+
+django_heroku.settings(locals())
