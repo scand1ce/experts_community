@@ -31,13 +31,13 @@ INSTALLED_APPS = [
     'my-admin.apps.AdminConfig',
     'storage.apps.StorageConfig',
     'posts.apps.PostsConfig',
-    'chat.apps.ChatConfig',
+    'chat',
     'commands',
+    'channels',
 
 
     #  <--- 
     'crispy_forms',
-    #'registration',
     'django_extensions',
 
 
@@ -79,6 +79,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'experts_community.wsgi.application'
+ASGI_APPLICATION = 'chat.routing.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases

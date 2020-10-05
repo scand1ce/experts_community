@@ -1,7 +1,11 @@
-from chat.models import Chat
-from django.views.generic import (CreateView)
+from django.shortcuts import render
 
 
-class ChatView(CreateView):
-    model = Chat
-    pass
+def chat(request):
+    return render(request, 'chat/chat.html', {})
+
+
+def room(request, room_name):
+    return render(request, 'chat/room.html', {
+        'room_name': room_name
+    })
