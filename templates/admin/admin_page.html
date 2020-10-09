@@ -33,15 +33,14 @@ input.btn-dark {
 
     <form>
         {% csrf_token %}
-        {{ crispy }}
+
         <div class="table-responsive-lg">
             <table class="table table-hover table-dark" style="background-color: #16181b ">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Пользователь</th>
-                    <th scope="col">Имя</th>
-                    <th scope="col">Фамилия</th>
+                    <th scope="col">Никнэйм</th>
                     <th scope="col">Электронная почта</th>
                     <th scope="col">Отдел</th>
                     <th scope="col">Админ</th>
@@ -55,9 +54,20 @@ input.btn-dark {
 
                     <tr>
                         <td>{{ user.pk }}</td>
+                        <td> {%if user.avatar  %}
+                                    <img alt="User Pic"
+                                         src="{{ user.avatar.url }}"
+                                         id="profile-image1" class="img-circle img-responsive" style="max-width:40px;">
+                                    {%else%}
+                                    <img alt="User Pic"
+                                         src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+                                         id="profile-image1" class="img-circle img-responsive" style="max-width:40px;">
+                                    {% endif %}
+                            <br>
+                            {{user}}
+
+                             </td>
                         <td>{{ user.username }}</td>
-                        <td>{{ user.first_name }}</td>
-                        <td>{{ user.last_name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.department }}</td>
                         <td>{{ user.is_staff }} </td>
