@@ -27,3 +27,5 @@ class SignUpView(CreateView):
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
+
+
