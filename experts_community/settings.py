@@ -90,6 +90,7 @@ CHANNEL_LAYERS = {
     },
 }
 
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 """DATABASES = {
@@ -102,17 +103,18 @@ CHANNEL_LAYERS = {
         'PORT': 5432,
         'CONN_MAX_AGE': 500
     }
+    ,
 }"""
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            "NAME": "d14l71t5dv496k",
-            "USER": 'nrpqglhixflmvw',
-            "PASSWORD": "b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c",
-            "HOST": "ec2-34-231-56-78.compute-1.amazonaws.com",
-            "PORT": "5432",
-            "URI": "postgres://nrpqglhixflmvw:b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c@ec2-34-231-56-78.compute-1.amazonaws.com:5432/d14l71t5dv496k",
-            "Heroku CLI": "heroku pg:psql postgresql-acute-67518 --app experts-community",
+        'ENGINE': 'django.db.backends.postgresql',
+        "NAME": "d14l71t5dv496k",
+        "USER": 'nrpqglhixflmvw',
+        "PASSWORD": "b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c",
+        "HOST": "ec2-34-231-56-78.compute-1.amazonaws.com",
+        "PORT": "5432",
+        "URI": "postgres://nrpqglhixflmvw:b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c@ec2-34-231-56-78.compute-1.amazonaws.com:5432/d14l71t5dv496k",
+        "Heroku CLI": "heroku pg:psql postgresql-acute-67518 --app experts-community",
     }
 }
 
