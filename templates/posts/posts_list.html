@@ -15,11 +15,12 @@
 
 <!-- Page Content -->
 
-<div class="container" style="background-color: #16181b ">
 
-<div class="hover ehover12"
+
+<div class="hover ehover12 my-3 bg-dark"
      style=" background-image:
      url('https://img5.goodfon.ru/original/1920x1080/0/57/uaz-mashina-staraia-mashina.jpg');">
+
 {%if post.photo%}
  <img class="img-responsive" src="{{post.photo.url}}" alt="Forest" style="width:500px">
 
@@ -45,41 +46,10 @@
         </div>
  </div>
 
-</div>
+
 
 
 
 {% endfor%}
 
-
-{% comment %}
- {%for post in post_list%}
-<div class="container">
-        <div class="card-header">
-
-        </div>
-        <div class="card-body" style="background-color: #16181b">
-            <div class="media">
-                {%if post.photo%}
-                <img src="{{post.photo.url}}" alt="" width="600" height="400" class="mr-3">
-                {%endif%}
-                <div class="media-body">
-                    <h5 class="card-title">{{post.title}}</h5>
-                    <p class="card-text">{{post.content|safe|truncatewords:77}}</p>
-                    <a href="{% url 'detail_post' post.pk %}" class="btn bg-dark text-white" >Смотреть полностью</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-footer text-white" style="background-color: #383d41 ">
-
-            <h5>Опубликовано пользователем {{ post.author }},
-                {{post.created_at|timesince }} назад,
-                {{post.created_at }}.
-            </h5>
-        </div>
-</div>
-
-    {%endfor%}
-{% endcomment %}
 {% endblock content %}
