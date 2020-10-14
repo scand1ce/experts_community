@@ -5,7 +5,7 @@
 {% block title %}Чат{% endblock title %}
 
 {% block content %}
-{% if user.is_authenticated %}
+
 <body>
     <textarea id="chat-log" cols="100" rows="20"></textarea><br>
     <input id="chat-message-input" type="text" size="50">
@@ -50,7 +50,7 @@
         };
     </script>
 </body>
-{% else %}
+
 <h1>Вы  не  можете  видеть  эту страницу! <br> Войдите в аккаунт или зарегистрируйтесь!</h1>
-{% endif %}
+
 {% endblock content %}

@@ -1,8 +1,5 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
-from django.contrib.auth.decorators import login_required
-
-from users.models import CustomUser
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
@@ -53,4 +50,3 @@ class ChatConsumer(AsyncWebsocketConsumer):
         await self.send(text_data=json.dumps({
             'message': message
         }))
-
