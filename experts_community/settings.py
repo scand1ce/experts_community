@@ -31,12 +31,13 @@ INSTALLED_APPS = [
     'my-admin.apps.AdminConfig',
     'storage.apps.StorageConfig',
     'posts.apps.PostsConfig',
+    'chat',
     'commands',
+    'channels',
 
 
     #  <--- 
     'crispy_forms',
-    #'registration',
     'django_extensions',
 
 
@@ -78,6 +79,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'experts_community.wsgi.application'
+ASGI_APPLICATION = 'chat.routing.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -91,17 +103,18 @@ WSGI_APPLICATION = 'experts_community.wsgi.application'
         'PORT': 5432,
         'CONN_MAX_AGE': 500
     }
+    ,
 }"""
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            "NAME": "d14l71t5dv496k",
-            "USER": 'nrpqglhixflmvw',
-            "PASSWORD": "b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c",
-            "HOST": "ec2-34-231-56-78.compute-1.amazonaws.com",
-            "PORT": "5432",
-            "URI": "postgres://nrpqglhixflmvw:b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c@ec2-34-231-56-78.compute-1.amazonaws.com:5432/d14l71t5dv496k",
-            "Heroku CLI": "heroku pg:psql postgresql-acute-67518 --app experts-community",
+        'ENGINE': 'django.db.backends.postgresql',
+        "NAME": "d14l71t5dv496k",
+        "USER": 'nrpqglhixflmvw',
+        "PASSWORD": "b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c",
+        "HOST": "ec2-34-231-56-78.compute-1.amazonaws.com",
+        "PORT": "5432",
+        "URI": "postgres://nrpqglhixflmvw:b06a2e3d36737c51fee479073ecb049f9b745ab499dd96661dbea7e670dc969c@ec2-34-231-56-78.compute-1.amazonaws.com:5432/d14l71t5dv496k",
+        "Heroku CLI": "heroku pg:psql postgresql-acute-67518 --app experts-community",
     }
 }
 
