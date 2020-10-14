@@ -12,18 +12,17 @@ class ChatConsumer(AsyncWebsocketConsumer):
         self.room_name = 'general'
         self.room_group_name = 'general'
 
-        if self.user.is_authenticated:
+        if not self.user.is_authenticated:
+            await self.close()
 
             # Join room group
-            await self.channel_layer.group_add(
-                self.room_group_name,
-                self.channel_name
+        await self.channel_layer.group_add(
+            self.room_group_name,
+            self.channel_name
 
-            )
+        )
 
         await self.accept()
-
-
 
     async def disconnect(self, close_code):
         # Leave room group
