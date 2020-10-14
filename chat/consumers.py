@@ -1,27 +1,28 @@
 import json
-from channels.auth import login
-from channels.exceptions import DenyConnection
 from channels.generic.websocket import AsyncWebsocketConsumer
-from django.contrib.auth.models import AnonymousUser
-from django.http import request
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
 from users.models import CustomUser
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
+
     async def connect(self):
-        user = self.scope["session"]["_auth_user"]
+        self.user = self.scope['user']
         self.room_name = 'general'
         self.room_group_name = 'general'
 
+        if self.user.is_authenticated:
 
-        # Join room group
-        await self.channel_layer.group_add(
-            self.room_group_name,
-            self.channel_name
-        )
+            # Join room group
+            await self.channel_layer.group_add(
+                self.room_group_name,
+                self.channel_name
+
+            )
 
         await self.accept()
+
 
 
     async def disconnect(self, close_code):
@@ -53,3 +54,4 @@ class ChatConsumer(AsyncWebsocketConsumer):
         await self.send(text_data=json.dumps({
             'message': message
         }))
+
