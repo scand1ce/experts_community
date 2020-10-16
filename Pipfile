@@ -18,8 +18,9 @@ ipython = "*"
 django-heroku = "*"
 pip = "*"
 Pillow = "*"
-
-
+channels = "*"
+channels-redis = "*"
+redis = "*"
 
 [requires]
 python_version = "3.8"
