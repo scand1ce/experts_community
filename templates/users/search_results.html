@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Поиск{% endblock title %}
+
+{% block content %}
+
+<h1>Результат поиска</h1>
+
+{% for user in customuser_list %}
+<ul class="border">
+    <li>
+        {%if user.avatar %}
+        <img alt="User Pic"
+             src="{{ user.avatar.url }}"
+             id="profile-image1" class="img-circle img-responsive" style="max-width:40px;">
+        {%else%}
+        <img alt="User Pic"
+             src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+             id="profile-image1" class="img-circle img-responsive" style="max-width:40px;">
+        {% endif %}
+        <a href="#">{{user}}</a>
+    </li>
+    <hr color="gray">
+    <li>
+        <p>
+            <font
+                    color="gray">Последний раз был в системе: {{ user.last_login }}
+            </font>
+        </p>
+    </li>
+
+</ul>
+
+
+
+{% endfor %}
+
+{% endblock content %}

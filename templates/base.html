@@ -43,10 +43,16 @@
                            onclick="location.href='{% url 'list_posts' %}'">
                      <input class="btn btn-dark" type="button" value="Общий чат"
                            onclick="location.href='{% url 'chat' %}'">
+
                 </div>
 
-
             </div>
+
+                <form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}"
+                      method="get">
+                    <input name="q" class="form-control mr-sm-2" type="text" placeholder="Поиск пользователя"
+                           aria-label="Поиск">
+                </form>
 
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
