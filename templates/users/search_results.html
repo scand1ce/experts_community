@@ -18,7 +18,9 @@
              src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
              id="profile-image1" class="img-circle img-responsive" style="max-width:40px;">
         {% endif %}
-        <a href="#">{{user}}</a>
+        <a href="">{{user}}</a>
+        <input class="btn-dark" type="button" value="Смотреть"
+               onclick="location.href='{% url 'user_page' user.pk %}'">
     </li>
     <hr color="gray">
     <li>
@@ -28,9 +30,7 @@
             </font>
         </p>
     </li>
-
 </ul>
-
 
 
 {% endfor %}

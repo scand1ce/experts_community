@@ -1,10 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}Личный кабинет{% endblock title %}
+
+{% block content %}
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<style>
+                  input.hidden {
+    position: absolute;
+    left: 2000px;
+}
+
+#profile-image1 {
+    cursor: pointer;
+
+     width: 150px;
+    height: 150px;
+
+	border:2px solid #03b1ce ;}
+	.tital{ font-size:16px; font-weight:500;}
+	 .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}
+
+
+</style>
+<br>
+
+<div class="container" >
+    <div class="row">
+
+        <div class="col-md-10 ">
+
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Личный кабинет</h4></div>
+                <div class="panel-body">
+
+                    <div class="box box-info">
+
+                        <div class="box-body">
+                            <div class="col-sm-6">
+                                <div align="center">
+                                    {%if customuser.avatar  %}
+                                    <img alt="User Pic"
+                                         src="{{ user.avatar.url }}"
+                                         id="profile-image1" class="img-circle img-responsive">
+                                    {%else%}
+                                    <img alt="User Pic"
+                                         src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+                                         id="profile-image1" class="img-circle img-responsive">
+                                    {% endif %}
+
+                                    <!--Upload Image Js And Css-->
+
+
+                                </div>
+
+                                <br>
+
+                                <!-- /input-group -->
+
+                            </div>
+                            <div class="col-sm-6">
+                                <span><h4 style="color:#00b1b1;">
+                                    {{customuser.first_name}} {{customuser.last_name}}
+                                </h4></span>
+                                <span><p style="color:#00b1b1;">Отдел:
+                                    <font color="black">{{customuser.department}}</font></p></span>
+
+                                <span><p style="color:#00b1b1;">Эл.почта:
+                                    <font color="black">{{customuser.email}}</font></p></span>
+
+
+                                {%if customuser.is_superuser or  customuser.user.is_staff%}
+
+                                <span><p style="color:#00b1b1;">Статус:<font color="black"> Администратор</font> </p></span>
+                                {% else %}
+                                <span><p style="color:#00b1b1;">Статус:<font color="black"> Эксперт </font> </p></span>
+                                {% endif %}
+                            </div>
+                            <div class="clearfix"></div>
+                            <span><p style="color:gray;">Последний раз  был в   системе:
+                                    {{customuser.last_login}}</p></span>
+                            <hr style="margin:5px 0 5px 0;">
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <script>
+              $(function() {
+    $('#profile-image1').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+});
+
+
+            </script>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

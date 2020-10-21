@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
         return self.get_full_name()
 
     def get_absolute_url(self):
-        return reverse('admin_page', args=[str(self.id)])
+        return reverse('admin_page', args=[str(self.pk)])
 
     def get_full_name(self):
         full_name = '%s %s' % (self.first_name, self.last_name)

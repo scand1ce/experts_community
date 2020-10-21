@@ -64,7 +64,7 @@ input.btn-dark {
                                          id="profile-image1" class="img-circle img-responsive" style="max-width:40px;">
                                     {% endif %}
                             <br>
-                            <a href="#">{{user}}</a>
+                            <a href="{% url 'user_page' user.pk %}">{{user}}</a>
 
                              </td>
                         <td>{{ user.username }}</td>
