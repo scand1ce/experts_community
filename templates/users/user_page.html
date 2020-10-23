@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}Личный кабинет{% endblock title %}
 
 {% block content %}
 
-{% if user.is_authenticated %}
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <style>
                   input.hidden {
     position: absolute;
@@ -28,6 +28,7 @@
 
 </style>
 <br>
+
 <div class="container" >
     <div class="row">
 
@@ -42,7 +43,7 @@
                         <div class="box-body">
                             <div class="col-sm-6">
                                 <div align="center">
-                                    {%if user.avatar  %}
+                                    {%if customuser.avatar  %}
                                     <img alt="User Pic"
                                          src="{{ user.avatar.url }}"
                                          id="profile-image1" class="img-circle img-responsive">
@@ -60,21 +61,32 @@
                                 <br>
 
                                 <!-- /input-group -->
+
                             </div>
                             <div class="col-sm-6">
-                                <span><h4 style="color:#00b1b1;">{{user}}</h4></span>
-                                <span><p style="color:#00b1b1;">Отдел: {{user.department}}</p></span>
-                                {%if user.is_superuser or  user.is_staff%}
-                                <span><p style="color:#00b1b1;">Статус: Администратор </p></span>
+                                <span><h4 style="color:#00b1b1;">
+                                    {{customuser.first_name}} {{customuser.last_name}}
+                                </h4></span>
+                                <span><p style="color:#00b1b1;">Отдел:
+                                    <font color="black">{{customuser.department}}</font></p></span>
+
+                                <span><p style="color:#00b1b1;">Эл.почта:
+                                    <font color="black">{{customuser.email}}</font></p></span>
+
+
+                                {%if customuser.is_superuser or  customuser.user.is_staff%}
+
+                                <span><p style="color:#00b1b1;">Статус:<font color="black"> Администратор</font> </p></span>
                                 {% else %}
-                                <span><p style="color:#00b1b1;">Статус: Эксперт </p></span>
+                                <span><p style="color:#00b1b1;">Статус:<font color="black"> Эксперт </font> </p></span>
                                 {% endif %}
                             </div>
                             <div class="clearfix"></div>
+                            <span><p style="color:gray;">Последний раз  был в   системе:
+                                    {{customuser.last_login}}</p></span>
                             <hr style="margin:5px 0 5px 0;">
 
 
-                            <!-- /.box -->
 
                         </div>
 
@@ -98,10 +110,32 @@
 
 
 
-    {% else %}
-    <h3>Войдите в аккаунт или зарегистрируйтесь!</h3>
 
 
-    {% endif %}
+
+
+
+
+
+
+
+
 
 {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
