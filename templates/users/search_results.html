@@ -9,9 +9,9 @@
 {% for user in customuser_list %}
 <ul class="border">
     <li>
-        {%if user.avatar %}
+        {%if customuser.avatar %}
         <img alt="User Pic"
-             src="{{ user.avatar.url }}"
+             src="{{ customuser.avatar.url }}"
              id="profile-image1" class="img-circle img-responsive" style="max-width:40px;">
         {%else%}
         <img alt="User Pic"
