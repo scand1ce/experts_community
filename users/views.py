@@ -1,5 +1,4 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.http import Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
@@ -57,8 +56,8 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     template_name = 'users/user_page.html'
 
     def test_func(self):
-        if self.request.user.is_autenticated:
+        if self.request.user.is_authenticated:
             return True
-        return Http404
+        raise False
 
 

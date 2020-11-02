@@ -6,13 +6,14 @@
 
 {% block content %}
 
-<body>
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="50">
-    <input id="chat-message-submit" type="button" value="Отправить">
-    <br>
-    {{ room_name|json_script:"room-name" }}
 
+<div class="container p-3">
+    <textarea id="chat-log" cols="146" rows="10"></textarea><br>
+    <input id="chat-message-input" type="text" size="60">
+    <input id="chat-message-submit" type="button" value="Отправить">
+
+    {{ room_name|json_script:"room-name" }}
+</div>
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
@@ -49,6 +50,6 @@
             messageInputDom.value = '';
         };
     </script>
-</body>
+
 
 {% endblock content %}
