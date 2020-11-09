@@ -35,9 +35,13 @@ INSTALLED_APPS = [
     'commands',
     'channels',
 
+
     #  <---
     'crispy_forms',
     'django_extensions',
+
+
+
 
 ]
 
@@ -85,6 +89,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -156,6 +161,8 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
+
+
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
