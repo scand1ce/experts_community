@@ -26,11 +26,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'rest_framework',
+    'rest_framework.authtoken',
+
     #  --->
     'users.apps.UsersConfig',
     'my-admin.apps.AdminConfig',
     'storage.apps.StorageConfig',
     'posts.apps.PostsConfig',
+    'api.apps.ApiConfig',
     'chat',
     'commands',
     'channels',
@@ -44,6 +48,16 @@ INSTALLED_APPS = [
 
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 SITE_ID = 1
 

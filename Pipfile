@@ -21,6 +21,8 @@ Pillow = "*"
 channels = "*"
 channels-redis = "*"
 redis = "*"
+djangorestframework = "*"
+django-rest-auth = "*"
 
 [requires]
 python_version = "3.8"
