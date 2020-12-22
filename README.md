@@ -1,0 +1,1 @@
+`tokens = [Token.objects.create(user=user) for user in CustomUser.objects.all()]`
