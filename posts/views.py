@@ -11,6 +11,7 @@ from django.views.generic import (
 from django.views.generic.edit import FormMixin
 from posts.forms import CreatePostsForm, CreateCommentsForm
 from posts.models import Post
+from django.core.paginator import Paginator
 
 
 class CreatePostsView(LoginRequiredMixin, CreateView):
@@ -25,6 +26,7 @@ class CreatePostsView(LoginRequiredMixin, CreateView):
 
 class ListPostsView(LoginRequiredMixin, ListView):
     model = Post
+    paginate_by = 2
     template_name = 'posts/posts_list.html'
 
 

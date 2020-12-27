@@ -6,8 +6,8 @@
 {% block title %}Посты{% endblock title %}
 {% load static %}
 {% block content %}
-
- {%for post in post_list%}
+<h1 align="center" style="color: white"><b>Всего {{ page_obj.paginator.count }} постов, на всех страницах.</b></h1>
+ {%for post in page_obj%}
 
 <link rel="stylesheet" href="https://bootstraptema.ru/snippets/effect/2016/ihe/effects.css">
 <link rel="stylesheet" href="https://bootstraptema.ru/snippets/effect/2016/ihe/stylesheet.css">
@@ -46,10 +46,10 @@
         </div>
  </div>
 
-
-
-
-
 {% endfor%}
-
+<div class="hover ehover12 my-3 bg-dark"
+        <nav aria-label="Page navigation example">
+            {% include 'posts/include/pagination.html' %}
+        </nav>
+</div>
 {% endblock content %}
