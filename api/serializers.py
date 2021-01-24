@@ -8,8 +8,9 @@ class UserSerializer(serializers.ModelSerializer):
         model = CustomUser
 
         fields = (
-
-            "username",
+            "first_name",
+            "last_name"
+            # "username",
         )
 
 
@@ -18,4 +19,4 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ('author', 'title', 'created_at',)
+        fields = ('author', 'title', 'content', 'created_at',)

@@ -7,10 +7,13 @@
     <meta charset="utf-8">
     <!-- Bootstrap CSS -->
     <link rel = "icon" href = "{% static 'img/favicon.png' %}">
+
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>{% block title %} Experts community {% endblock title %}</title>
+
+
 </head>
 
 <button onclick="topFunction()" id="myBtn" title="Go to top">Вверх</button>
@@ -23,6 +26,8 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
         <a class="navbar-left" href="{% url 'home' %}"><img class="img-responsive" src="/static/img/logo.png"
                                              style="max-width:130px;"></a>
+
+
 
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -43,10 +48,14 @@
                            onclick="location.href='{% url 'list_posts' %}'">
                      <input class="btn btn-dark" type="button" value="Общий чат"
                            onclick="location.href='{% url 'chat' %}'">
+                    <input class="btn btn-dark" type="button" value="TelegramBot"
+                           onclick="location.href='https://t.me/api_experts_community_bot'" target="_blank">
+
 
                 </div>
 
             </div>
+
 
                 <form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}"
                       method="get">
@@ -124,15 +133,16 @@
     </nav>
 </div>
 <br>
+
     <div class="container md-3 center">
-        <div class="container-md-3 ">
-            <div class="bg-dark text-white">
+        <div class="bg-dark text-white">
                 {% block content %}
 
                 {% endblock content %}
             </div>
         </div>
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

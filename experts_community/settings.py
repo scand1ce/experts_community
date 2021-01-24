@@ -58,6 +58,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
 
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',  # +
+    'PAGE_SIZE': 2  # +
 }
 
 SITE_ID = 1
@@ -177,8 +179,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 
-
-
 AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
@@ -192,3 +192,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SHELL_PLUS = "ipython"
 
 django_heroku.settings(locals())
+
+BOT_TOKEN = '1478554432:AAFaUwp-sA69E23d615DWdbvcLnsKEOOj4o'
+
+CHAT_ID = '-1001200412225'

@@ -10,6 +10,8 @@ class CreatePostsForm(forms.ModelForm):
         model = Post
         fields = ('title', 'content', 'photo', 'is_published')
 
+
+
     def clean_title(self):
         title = self.cleaned_data['title']
         if re.match(r'\d', title):

@@ -5,18 +5,23 @@ from django.views.generic import (
     ListView,
     DetailView,
     UpdateView,
-    DeleteView
-
+    DeleteView,
+    TemplateView
 )
 from django.views.generic.edit import FormMixin
+
 from posts.forms import CreatePostsForm, CreateCommentsForm
 from posts.models import Post
-from django.core.paginator import Paginator
+
+
+class NotificationForBotView(TemplateView):
+    model = Post
+    template_name = 'posts/intermediate.html'
 
 
 class CreatePostsView(LoginRequiredMixin, CreateView):
     form_class = CreatePostsForm
-    success_url = reverse_lazy('list_posts')
+    success_url = reverse_lazy('notification')
     template_name = 'posts/posts_create.html'
 
     def form_valid(self, form):
