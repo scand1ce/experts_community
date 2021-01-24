@@ -5,17 +5,23 @@ from django.views.generic import (
     ListView,
     DetailView,
     UpdateView,
-    DeleteView
-
+    DeleteView,
+    TemplateView
 )
 from django.views.generic.edit import FormMixin
+
 from posts.forms import CreatePostsForm, CreateCommentsForm
 from posts.models import Post
 
 
+class NotificationForBotView(TemplateView):
+    model = Post
+    template_name = 'posts/intermediate.html'
+
+
 class CreatePostsView(LoginRequiredMixin, CreateView):
     form_class = CreatePostsForm
-    success_url = reverse_lazy('list_posts')
+    success_url = reverse_lazy('notification')
     template_name = 'posts/posts_create.html'
 
     def form_valid(self, form):
@@ -25,6 +31,7 @@ class CreatePostsView(LoginRequiredMixin, CreateView):
 
 class ListPostsView(LoginRequiredMixin, ListView):
     model = Post
+    paginate_by = 2
     template_name = 'posts/posts_list.html'
 
 

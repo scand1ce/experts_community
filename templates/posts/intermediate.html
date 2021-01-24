@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load request_for_bot %}
+
+{% block title %}Новый пост{% endblock title %}
+
+{% block content %}
+
+
+<hr>
+<div class="container" >
+
+                <div class="content" style="background-color:rgb(46, 40, 73);" onclick="{% send_request_for_bot %}">
+                    <h3 class="title">Пост добавлен!</h3>
+                    <p>Всем пользователям отправлено уведомление о Вашей публикации в  Telegram.</p>
+<hr>
+                    <div class="footer">
+                        <input class="btn btn-primary" value="Перейти к постам"
+                               onclick="location.href='{% url 'list_posts' %}'"/>
+                    </div>
+                </div>
+            </div>
+
+<hr>
+
+{% endblock content %}
